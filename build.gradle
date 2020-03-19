@@ -1,9 +1,11 @@
 plugins {
-    id 'groovy'
     id 'java'
-    id 'java-gradle-plugin'
+    id 'groovy'
     id 'maven-publish'
+    id 'maven'
     id "com.jfrog.artifactory" version "4.15.1"
+    id 'com.github.ben-manes.versions' version '0.27.0'
+    id 'java-gradle-plugin'
 }
 
 group 'com.mx'
