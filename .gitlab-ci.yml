@@ -12,7 +12,7 @@ cache:
 package:
   stage: package
   script:
-    - ./gradlew pluginDescriptors assemble validatePlugins
+    - ./gradlew assemble
   artifacts:
     expire_in: 1 hour
     paths:
