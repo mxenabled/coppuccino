@@ -1,0 +1,28 @@
+image: java:8
+
+stages:
+  - package
+  - deploy
+
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+
+package:
+  stage: package
+  script:
+    - ./gradlew pluginDescriptors assemble validatePlugins
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - build/libs/*.jar
+
+deploy:
+  stage: deploy
+  dependencies:
+    - package
+  script:
+    - ./gradlew artifactoryPublish
+  only:
+    - tags

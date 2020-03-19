@@ -1,0 +1,91 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id "com.jfrog.artifactory" version "4.10.0"
+}
+
+group 'com.mx'
+version '0.0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url "https://artifactory.internal.mx:443/maven-local" }
+    maven { url "https://artifactory.internal.mx:443/gradle-local" }
+    jcenter()
+    gradlePluginPortal()
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'ru.vyarus:gradle-quality-plugin:4.1.0'
+    implementation 'org.codehaus.groovy:groovy-all:2.5.8'
+    implementation 'com.github.spotbugs:spotbugs-gradle-plugin:2.0.1'
+    implementation 'org.codehaus.groovy:groovy-all:2.3.11'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+//    testCompile gradleTestKit()
+}
+
+project.description     = 'Java style, standard, and safety enforcement'
+project.group           = 'com.mx'
+project.version         = '0.0.1'
+
+project.ext.name        = 'coppuccino'
+project.ext.pluginId    = 'com.mx.coppuccino'
+project.ext.scm         = 'scm:git@gitlab.mx.com:mx/coppuccino.git'
+project.ext.url         = 'https://gitlab.mx.com/mx/coppuccino'
+
+gradlePlugin {
+    plugins {
+        demoPlugin {
+            id = project.pluginId
+            implementationClass = 'com.mx.coppuccino.CoppuccinoPlugin'
+        }
+    }
+}
+
+//pluginBundle {
+//    website = project.url
+//    vcsUrl = project.scm
+//    tags = ['demo', 'example', 'quickstart']
+//
+//    plugins {
+//        demoPlugin {
+//            displayName = 'Java Cop Gradle Plugin'
+//            description = project.description
+//            id          = project.pluginId
+//        }
+//    }
+//}
+
+artifactory {
+    contextUrl = "https://artifactory.internal.mx:443"
+    publish {
+        repository {
+            repoKey = 'gradle-local'
+            username = "gradle-write"
+            password = System.getenv("GRADLE_ARTIFACTORY_API_KEY")
+            maven = true
+        }
+        defaults {
+            publishConfigs('archives')
+            publishBuildInfo = false
+            publishPom = false
+            publishIvy = false
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'maven-local'
+            username = "maven-read"
+            maven = true
+        }
+    }
+}
+
+artifactoryPublish {
+    dependsOn jar
+}
