@@ -3,7 +3,7 @@ plugins {
     id 'java'
     id 'java-gradle-plugin'
     id 'maven-publish'
-    id "com.jfrog.artifactory" version "4.10.0"
+    id "com.jfrog.artifactory" version "4.15.1"
 }
 
 group 'com.mx'
