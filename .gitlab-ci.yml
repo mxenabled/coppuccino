@@ -23,6 +23,6 @@ deploy:
   dependencies:
     - package
   script:
-    - ./gradlew artifactoryPublish publishPluginMavenPublicationToMavenLocal
+    - ./gradlew publishPluginMavenPublicationToMavenLocal
   only:
     - tags
