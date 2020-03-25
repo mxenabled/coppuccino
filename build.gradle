@@ -3,7 +3,7 @@ plugins {
     id 'groovy'
     id 'maven-publish'
     id 'maven'
-    id "com.jfrog.artifactory" version "4.15.1"
+    id 'com.jfrog.artifactory' version '4.15.1'
     id 'com.github.ben-manes.versions' version '0.27.0'
     id 'java-gradle-plugin'
 }
@@ -42,7 +42,7 @@ project.ext.url         = 'https://gitlab.mx.com/mx/coppuccino'
 
 gradlePlugin {
     plugins {
-        demoPlugin {
+        coppuccino {
             id = project.pluginId
             implementationClass = 'com.mx.coppuccino.CoppuccinoPlugin'
         }
@@ -56,7 +56,7 @@ gradlePlugin {
 //
 //    plugins {
 //        demoPlugin {
-//            displayName = 'Java Cop Gradle Plugin'
+//            displayName = 'Coppuccino Gradle Plugin'
 //            description = project.description
 //            id          = project.pluginId
 //        }
