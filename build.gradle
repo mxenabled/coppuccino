@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.mx'
-version '0.0.4'
+version '0.0.6'
 
 sourceCompatibility = 1.8
 
@@ -34,7 +34,7 @@ dependencies {
 
 project.description     = 'Java style, standard, and safety enforcement'
 project.group           = 'com.mx'
-project.version         = '0.0.4'
+project.version         = '0.0.6'
 
 project.ext.name        = 'coppuccino'
 project.ext.pluginId    = 'com.mx.coppuccino'
@@ -46,18 +46,6 @@ gradlePlugin {
         coppuccinoPlugin {
             id = project.pluginId
             implementationClass = 'com.mx.coppuccino.CoppuccinoPlugin'
-        }
-    }
-}
-
-pluginBundle {
-    website = project.url
-    vcsUrl = project.scm
-    tags = ['demo', 'example', 'quickstart']
-
-    plugins {
-        coppuccinoPlugin {
-            displayName = 'Java Cop Gradle Plugin'
         }
     }
 }
