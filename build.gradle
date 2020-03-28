@@ -9,8 +9,8 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.27.0'
 }
 
-group 'com.mx'
-version '0.0.6'
+group 'com.mx.coppuccino'
+version '0.0.6.pre'
 
 sourceCompatibility = 1.8
 
@@ -33,8 +33,8 @@ dependencies {
 }
 
 project.description     = 'Java style, standard, and safety enforcement'
-project.group           = 'com.mx'
-project.version         = '0.0.6'
+project.group           = 'com.mx.coppuccino'
+project.version         = '0.0.6.pre'
 
 project.ext.name        = 'coppuccino'
 project.ext.pluginId    = 'com.mx.coppuccino'
@@ -64,6 +64,7 @@ artifactory {
             publishBuildInfo = false
             publishPom = false
             publishIvy = false
+            invokeMethod("publications", publishing.publications.names.toArray())
         }
     }
     resolve {
