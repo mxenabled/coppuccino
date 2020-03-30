@@ -1,15 +1,16 @@
 plugins {
+    id "com.gradle.plugin-publish" version "0.10.1"
+    id 'java-gradle-plugin'
     id 'java'
     id 'groovy'
     id 'maven-publish'
     id 'maven'
     id "com.jfrog.artifactory" version "4.15.1"
     id 'com.github.ben-manes.versions' version '0.27.0'
-    id 'java-gradle-plugin'
 }
 
-group 'com.mx'
-version '0.0.1'
+group 'com.mx.coppuccino'
+version '0.0.6.pre'
 
 sourceCompatibility = 1.8
 
@@ -32,8 +33,8 @@ dependencies {
 }
 
 project.description     = 'Java style, standard, and safety enforcement'
-project.group           = 'com.mx'
-project.version         = '0.0.1'
+project.group           = 'com.mx.coppuccino'
+project.version         = '0.0.6.pre'
 
 project.ext.name        = 'coppuccino'
 project.ext.pluginId    = 'com.mx.coppuccino'
@@ -42,26 +43,12 @@ project.ext.url         = 'https://gitlab.mx.com/mx/coppuccino'
 
 gradlePlugin {
     plugins {
-        demoPlugin {
+        coppuccinoPlugin {
             id = project.pluginId
             implementationClass = 'com.mx.coppuccino.CoppuccinoPlugin'
         }
     }
 }
-
-//pluginBundle {
-//    website = project.url
-//    vcsUrl = project.scm
-//    tags = ['demo', 'example', 'quickstart']
-//
-//    plugins {
-//        demoPlugin {
-//            displayName = 'Java Cop Gradle Plugin'
-//            description = project.description
-//            id          = project.pluginId
-//        }
-//    }
-//}
 
 artifactory {
     contextUrl = "https://artifactory.internal.mx:443"
@@ -77,6 +64,7 @@ artifactory {
             publishBuildInfo = false
             publishPom = false
             publishIvy = false
+            invokeMethod("publications", publishing.publications.names.toArray())
         }
     }
     resolve {
@@ -89,5 +77,6 @@ artifactory {
 }
 
 artifactoryPublish {
+    contextUrl = "https://artifactory.internal.mx:443"
     dependsOn jar
 }
