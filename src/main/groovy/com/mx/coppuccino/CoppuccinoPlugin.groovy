@@ -1,5 +1,6 @@
 package com.mx.coppuccino
 
+import com.diffplug.gradle.spotless.SpotlessPlugin
 import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
 import org.gradle.api.Plugin
@@ -21,6 +22,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
       project.afterEvaluate {
         project.tasks.register('configureCoppuccino', SetupCoppuccino)
         project.plugins.apply(QualityPlugin)
+        project.plugins.apply(SpotlessPlugin)
         project.configure(project) {
           quality {
             checkstyleVersion = '8.29'
@@ -30,6 +32,19 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
             configDir = '.coppuccino'
             sourceSets = [project.sourceSets.main]
+          }
+          spotless {
+            java {
+              importOrder 'java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor'
+              // A sequence of package names
+              eclipse().configFile '.coppuccino/spotless/eclipse-formatter.xml'
+              // XML file dumped out by the Eclipse formatter
+              removeUnusedImports()
+              target project.fileTree(project.rootDir) {
+                include '**/*.java'
+                exclude 'build/generated/**/*.*'
+              }
+            }
           }
         }
       }
