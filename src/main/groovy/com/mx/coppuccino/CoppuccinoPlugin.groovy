@@ -14,8 +14,12 @@ class CoppuccinoPlugin implements Plugin<Project> {
   void apply(Project project) {
     project.plugins.withType(JavaPlugin) {
       project.afterEvaluate {
-        project.tasks.register('initCopConfig', InitCopConfig)
+        def initCopConfig = new CopyCopConfig()
+        initCopConfig.run()
+      }
 
+      project.afterEvaluate {
+        project.tasks.register('configureCoppuccino', SetupCoppuccino)
         project.plugins.apply(QualityPlugin)
         project.configure(project) {
           quality {
@@ -24,7 +28,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             pmd = true
             spotbugs = true
 
-            configDir = 'src/main/resources/coppuccino'
+            configDir = '.coppuccino'
             sourceSets = [project.sourceSets.main]
           }
         }
