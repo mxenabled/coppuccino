@@ -7,6 +7,12 @@
     <Source name="~.*\.groovy"/>
   </Match>
 
+  <Match>
+    <Package name="~.*\.models\..*" />
+    <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
+  </Match>
+
+
   <!-- Disable check -->
   <Match>
     <!-- The reason for disable is guava, which use @Nullable for function and if you want not nullable function
