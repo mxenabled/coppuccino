@@ -42,7 +42,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
               removeUnusedImports()
               target project.fileTree(project.rootDir) {
                 include '**/*.java'
-                exclude 'build/generated/**/*.*'
+                exclude 'build/generated/**/*.*', '.gradle/**/*.*'
               }
             }
           }
