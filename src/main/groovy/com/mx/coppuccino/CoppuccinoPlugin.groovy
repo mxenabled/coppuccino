@@ -35,6 +35,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           }
           spotless {
             java {
+              paddedCell()
               importOrder 'java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor'
               // A sequence of package names
               eclipse().configFile '.coppuccino/spotless/eclipse-formatter.xml'
