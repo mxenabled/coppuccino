@@ -32,6 +32,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
             configDir = '.coppuccino'
             sourceSets = [project.sourceSets.main]
+            excludeSources = fileTree('build/generated')
           }
           spotless {
             java {
