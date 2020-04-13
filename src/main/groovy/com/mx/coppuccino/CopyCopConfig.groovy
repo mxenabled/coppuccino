@@ -37,5 +37,11 @@ class CopyCopConfig {
     stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/spotless/eclipse-formatter.xml")
     target.text = ''
     target << stream.text
+
+    target = new File(Paths.get(".coppuccino/detekt/detekt.yml").toString())
+    target.getParentFile().mkdirs()
+    stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/detekt/detekt.yml")
+    target.text = ''
+    target << stream.text
   }
 }

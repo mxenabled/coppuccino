@@ -7,6 +7,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin
 import ru.vyarus.gradle.plugin.quality.QualityPlugin
+import io.gitlab.arturbosch.detekt.DetektPlugin
 
 @CompileStatic
 class CoppuccinoPlugin implements Plugin<Project> {
@@ -23,13 +24,13 @@ class CoppuccinoPlugin implements Plugin<Project> {
         project.tasks.register('configureCoppuccino', SetupCoppuccino)
         project.plugins.apply(QualityPlugin)
         project.plugins.apply(SpotlessPlugin)
+        project.plugins.apply(DetektPlugin)
         project.configure(project) {
           quality {
             checkstyleVersion = '8.29'
             checkstyle = true
             pmd = true
             spotbugs = true
-
             configDir = '.coppuccino'
             sourceSets = [project.sourceSets.main]
             excludeSources = fileTree('build/generated')
@@ -47,7 +48,17 @@ class CoppuccinoPlugin implements Plugin<Project> {
                 exclude 'build/generated/**/*.*', '.gradle/**/*.*'
               }
             }
+            kotlin {
+              ktlint()
+            }
+
           }
+          detekt {
+            config = files(".coppuccino/detekt/detekt.yml")
+            excludes: ".*build.*,.*/resources/.*,.*/tmp/.*"
+
+          }
+
         }
       }
     }
