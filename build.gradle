@@ -18,7 +18,7 @@ repositories {
     maven { url "https://artifactory.internal.mx:443/gradle-local" }
     jcenter()
     gradlePluginPortal()
-    mavenLocal()git
+    mavenLocal()
 }
 
 dependencies {
