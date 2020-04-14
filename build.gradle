@@ -9,7 +9,7 @@ plugins {
 }
 
 group 'com.mx.coppuccino'
-version '0.0.16'
+version '0.0.17'
 
 sourceCompatibility = 1.8
 
@@ -18,7 +18,7 @@ repositories {
     maven { url "https://artifactory.internal.mx:443/gradle-local" }
     jcenter()
     gradlePluginPortal()
-    mavenLocal()
+    mavenLocal()git
 }
 
 dependencies {
@@ -33,7 +33,7 @@ dependencies {
 
 project.description     = 'Java style, standard, and safety enforcement'
 project.group           = 'com.mx.coppuccino'
-project.version         = '0.0.16'
+project.version         = '0.0.17'
 
 project.ext.name        = 'coppuccino'
 project.ext.pluginId    = 'com.mx.coppuccino'
