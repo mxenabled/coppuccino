@@ -36,6 +36,14 @@ class CoppuccinoPlugin implements Plugin<Project> {
             excludeSources = fileTree('build/generated')
           }
           spotless {
+            groovy {
+              paddedCell()
+              greclipse('2.3.0').configFile('.coppuccino/spotless/eclipse-formatter.xml')
+              target project.fileTree(project.rootDir) {
+                include '**/*.gradle', '**/*.groovy'
+                exclude 'build/generated/**/*.*', '.gradle/**/*.*'
+              }
+            }
             java {
               paddedCell()
               importOrder 'java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor'
