@@ -12,15 +12,16 @@ import ru.vyarus.gradle.plugin.quality.QualityPlugin
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 @CompileStatic
 class CoppuccinoPlugin implements Plugin<Project> {
 
   @CompileStatic(TypeCheckingMode.SKIP)
   void apply(Project project) {
-    def extension = project.extensions.create('coppuccino', CoppuccinnoPluginExtension)
+
+    // Register extensions for config DSL
+    def coppuccino = project.extensions.create('coppuccino', CoppuccinoPluginExtension)
+    def coverage = project.extensions.coppuccino.extensions.create('coverage', CoppuccinoCoverageExtension)
 
     project.plugins.withType(JavaPlugin) {
       project.afterEvaluate {
@@ -51,10 +52,13 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
           // **************************************
           // Spotless plugin configuration
+          // Configuration options:
+          //   https://github.com/diffplug/spotless/tree/master/plugin-gradle
           // **************************************
           spotless {
             groovy {
-              greclipse('2.3.0').configFile('.coppuccino/spotless/eclipse-formatter.xml')
+              importOrder('java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor')
+              greclipse('4.10.0').configFile('.coppuccino/spotless/eclipse-formatter.xml')
               target project.fileTree(project.rootDir) {
                 include '**/*.gradle', '**/*.groovy'
                 exclude 'build/generated/**/*.*', '.gradle/**/*.*'
@@ -62,7 +66,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             }
 
             java {
-              importOrder 'java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor'
+              importOrder ('java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor')
               // A sequence of package names
               eclipse().configFile '.coppuccino/spotless/eclipse-formatter.xml'
               // XML file dumped out by the Eclipse formatter
@@ -74,7 +78,13 @@ class CoppuccinoPlugin implements Plugin<Project> {
             }
 
             kotlin {
-              ktlint()
+              ktlint('0.37.2').userData(
+                  [
+                      'indent_size': '2',
+                      'continuation_indent_size': '2',
+                      'kotlin_imports_layout': 'idea'
+                  ]
+              )
             }
           }
 
@@ -98,6 +108,11 @@ class CoppuccinoPlugin implements Plugin<Project> {
               csv.enabled true
               html.enabled true
             }
+            afterEvaluate {
+              classDirectories.setFrom(classDirectories.files.collect {
+                fileTree(dir: it, exclude: coverage.excludes)
+              })
+            }
             executionData(test)
           }
 
@@ -106,13 +121,14 @@ class CoppuccinoPlugin implements Plugin<Project> {
               rule {
                 limit {
                   value = 'COVEREDRATIO'
-                  minimum = extension.minimumCoverage
+                  minimum = coverage.minimumCoverage
                 }
-                excludes = [
-                    'com.mx.mdx.models.*',
-                    'com.mx.mdx.Resources.*',
-                    'com.mx.mdx.Resources'
-                ]
+                afterEvaluate {
+                    classDirectories.setFrom(classDirectories.files.collect {
+                        fileTree(dir: it, exclude: coverage.excludes)
+                    })
+                }
+                excludes = coverage.excludes
               }
             }
           }

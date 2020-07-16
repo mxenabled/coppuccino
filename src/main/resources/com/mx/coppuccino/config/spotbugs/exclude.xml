@@ -11,7 +11,6 @@
     <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
   </Match>
 
-
   <!-- Disable check -->
   <Match>
     <!-- The reason for disable is guava, which use @Nullable for function and if you want not nullable function
@@ -19,6 +18,16 @@
      (actually not, because guava intend weaker semantics). So disable this check to be able to properly
      use nullability annotations -->
     <Bug pattern="NP_METHOD_PARAMETER_TIGHTENS_ANNOTATION" />
+  </Match>
+
+  <Match>
+    <!-- This incorrectly detects concurrency issues on Lombok lazy load getters. -->
+    <Bug pattern="JLM_JSR166_UTILCONCURRENT_MONITORENTER" />
+  </Match>
+
+  <Match>
+    <!-- This incorrectly detects concurrency issues on Lombok lazy load getters. -->
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" />
   </Match>
 
   <Match>
