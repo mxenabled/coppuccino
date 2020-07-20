@@ -11,7 +11,7 @@ plugins {
 }
 
 group 'com.mx.coppuccino'
-version '0.1.1.SNAPSHOT'
+version '0.1.1'
 
 sourceCompatibility = 1.8
 
@@ -36,7 +36,7 @@ dependencies {
 
 project.description     = 'Java style, standard, and safety enforcement'
 project.group           = 'com.mx.coppuccino'
-project.version         = '0.1.1.SNAPSHOT'
+project.version         = '0.1.1'
 
 project.ext.name        = 'coppuccino'
 project.ext.pluginId    = 'com.mx.coppuccino'
@@ -50,16 +50,6 @@ gradlePlugin {
             implementationClass = 'com.mx.coppuccino.CoppuccinoPlugin'
         }
     }
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = "sources"
-    from sourceSets.main.allSource
-}
-
-artifacts {
-    archives sourcesJar
-    archives jar
 }
 
 artifactoryPublish { dependsOn jar }
