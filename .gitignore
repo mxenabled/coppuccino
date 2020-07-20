@@ -8,6 +8,7 @@
 **.iws
 **.ipr
 **.iml
+out/
 
 ### Mem Dumps ###
 dump.rdb
@@ -15,3 +16,5 @@ dump.rdb
 ## gradle ##
 build
 .gradle/
+
+.coppuccino/
