@@ -47,6 +47,13 @@ class CoppuccinoPlugin implements Plugin<Project> {
             cveValidForHours=24
             failBuildOnCVSS=4
             format='HTML'
+            skipConfigurations=[
+                    'checkstyle',
+                    'pmd',
+                    'spotbugs',
+                    'spotbugsPlugins',
+                    'spotbugsSlf4j'
+            ]
             suppressionFile='dependency_suppression.xml'
           }
 
