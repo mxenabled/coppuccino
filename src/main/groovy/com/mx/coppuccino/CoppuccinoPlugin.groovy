@@ -7,6 +7,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.tasks.testing.Test
+import org.owasp.dependencycheck.gradle.DependencyCheckPlugin
 import org.kordamp.gradle.plugin.jacoco.JacocoPlugin
 import ru.vyarus.gradle.plugin.quality.QualityPlugin
 import io.gitlab.arturbosch.detekt.DetektPlugin
@@ -35,7 +36,26 @@ class CoppuccinoPlugin implements Plugin<Project> {
         project.plugins.apply(SpotlessPlugin)
         project.plugins.apply(DetektPlugin)
         project.plugins.apply(JacocoPlugin)
+        project.plugins.apply(DependencyCheckPlugin)
         project.configure(project) {
+
+          // **************************************
+          // Dependency Check Scanning
+          // **************************************
+          dependencyCheck {
+            data { directory='.dependency-check-data' }
+            cveValidForHours=24
+            failBuildOnCVSS=4
+            format='HTML'
+            skipConfigurations=[
+                    'checkstyle',
+                    'pmd',
+                    'spotbugs',
+                    'spotbugsPlugins',
+                    'spotbugsSlf4j'
+            ]
+            suppressionFile='dependency_suppression.xml'
+          }
 
           // **************************************
           // Quality plugin configuration
