@@ -11,3 +11,11 @@ class CoppuccinoCoverageExtension {
     'com.mx.mdx.Resources'
   ]
 }
+
+class CoppuccinoDependenciesExtension {
+  // Enable Dependency locking on all configurations
+  boolean lockingEnabled = true
+
+  // Ignore pre releases in dynamic version resolution
+  boolean excludePreReleaseVersions = true
+}
