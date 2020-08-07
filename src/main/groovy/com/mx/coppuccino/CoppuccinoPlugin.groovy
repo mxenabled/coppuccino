@@ -5,6 +5,7 @@ import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.artifacts.ComponentSelection
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.tasks.testing.Test
 import org.owasp.dependencycheck.gradle.DependencyCheckPlugin
@@ -23,6 +24,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
     // Register extensions for config DSL
     def coppuccino = project.extensions.create('coppuccino', CoppuccinoPluginExtension)
     def coverage = project.extensions.coppuccino.extensions.create('coverage', CoppuccinoCoverageExtension)
+    def dependencies = project.extensions.coppuccino.extensions.create('dependencies', CoppuccinoDependenciesExtension)
 
     project.plugins.withType(JavaPlugin) {
       project.afterEvaluate {
@@ -193,6 +195,26 @@ class CoppuccinoPlugin implements Plugin<Project> {
               }
             }
           }
+
+          if (dependencies.lockingEnabled) {
+            dependencyLocking { lockAllConfigurations() }
+          }
+
+          if (dependencies.excludePreReleaseVersions) {
+            configurations.all {
+              resolutionStrategy {
+                componentSelection {
+                  // ignore all versions that end with 'pre'
+                  all { ComponentSelection selection ->
+                    if (selection.candidate.version.endsWith('pre')) {
+                      selection.reject("pre versions are ignored")
+                    }
+                  }
+                }
+              }
+            }
+          }
+
         }
       }
     }
