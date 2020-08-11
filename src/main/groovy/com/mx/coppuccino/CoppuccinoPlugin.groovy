@@ -51,6 +51,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
             format='HTML'
             skipConfigurations=[
                     'checkstyle',
+                    'detekt',
+                    'detektPlugins',
                     'pmd',
                     'spotbugs',
                     'spotbugsPlugins',
