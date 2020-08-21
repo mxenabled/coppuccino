@@ -19,3 +19,8 @@ class CoppuccinoDependenciesExtension {
   // Ignore pre releases in dynamic version resolution
   boolean excludePreReleaseVersions = true
 }
+
+class CoppuccinoKotlinExtension {
+  // Disable kotlin support by default
+  boolean enabled = false
+}

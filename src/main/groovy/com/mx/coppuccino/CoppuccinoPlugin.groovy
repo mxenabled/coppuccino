@@ -25,6 +25,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
     def coppuccino = project.extensions.create('coppuccino', CoppuccinoPluginExtension)
     def coverage = project.extensions.coppuccino.extensions.create('coverage', CoppuccinoCoverageExtension)
     def dependencies = project.extensions.coppuccino.extensions.create('dependencies', CoppuccinoDependenciesExtension)
+    def kotlin = project.extensions.coppuccino.extensions.create('kotlin', CoppuccinoKotlinExtension)
 
     project.plugins.withType(JavaPlugin) {
       project.afterEvaluate {
@@ -36,7 +37,9 @@ class CoppuccinoPlugin implements Plugin<Project> {
         project.tasks.register('configureCoppuccino', SetupCoppuccino)
         project.plugins.apply(QualityPlugin)
         project.plugins.apply(SpotlessPlugin)
-        project.plugins.apply(DetektPlugin)
+        if (kotlin.enabled) {
+          project.plugins.apply(DetektPlugin)
+        }
         project.plugins.apply(JacocoPlugin)
         project.plugins.apply(DependencyCheckPlugin)
         project.configure(project) {
@@ -101,25 +104,28 @@ class CoppuccinoPlugin implements Plugin<Project> {
               }
             }
 
-            kotlin {
-              ktlint('0.37.2').userData(
-                  [
-                      'indent_size': '2',
-                      'continuation_indent_size': '2',
-                      'kotlin_imports_layout': 'idea'
-                  ]
-              )
+            if (kotlin.enabled) {
+              kotlin {
+                ktlint('0.37.2').userData(
+                    [
+                        'indent_size'             : '2',
+                        'continuation_indent_size': '2',
+                        'kotlin_imports_layout'   : 'idea'
+                    ]
+                )
+              }
             }
           }
 
           // **************************************
           // Detekt plugin configuration
           // **************************************
-          detekt {
-            config = files(".coppuccino/detekt/detekt.yml")
-            excludes: ".*build.*,.*/resources/.*,.*/tmp/.*"
+          if (kotlin.enabled) {
+            detekt {
+              config = files(".coppuccino/detekt/detekt.yml")
+              excludes: ".*build.*,.*/resources/.*,.*/tmp/.*"
+            }
           }
-
           // **************************************
           // JaCoCo test coverage configuration
           // **************************************
