@@ -211,6 +211,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           if (dependencies.excludePreReleaseVersions) {
             configurations.all {
               resolutionStrategy {
+                cacheDynamicVersionsFor 0, "seconds"
                 componentSelection {
                   // ignore all versions that end with 'pre'
                   all { ComponentSelection selection ->
