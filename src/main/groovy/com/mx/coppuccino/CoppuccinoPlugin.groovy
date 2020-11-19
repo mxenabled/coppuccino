@@ -25,7 +25,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
     def coppuccino = project.extensions.create('coppuccino', CoppuccinoPluginExtension)
     def coverage = project.extensions.coppuccino.extensions.create('coverage', CoppuccinoCoverageExtension)
     def dependencies = project.extensions.coppuccino.extensions.create('dependencies', CoppuccinoDependenciesExtension)
-    def kotlin = project.extensions.coppuccino.extensions.create('kotlin', CoppuccinoKotlinExtension)
+    def kotlinEx = project.extensions.coppuccino.extensions.create('kotlin', CoppuccinoKotlinExtension)
 
     project.plugins.withType(JavaPlugin) {
       project.afterEvaluate {
@@ -37,7 +37,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
         project.tasks.register('configureCoppuccino', SetupCoppuccino)
         project.plugins.apply(QualityPlugin)
         project.plugins.apply(SpotlessPlugin)
-        if (kotlin.enabled) {
+        if (kotlinEx.enabled) {
           project.plugins.apply(DetektPlugin)
         }
         project.plugins.apply(JacocoPlugin)
@@ -104,7 +104,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
               }
             }
 
-            if (kotlin.enabled) {
+            if (kotlinEx.enabled) {
               kotlin {
                 ktlint('0.37.2').userData(
                     [
@@ -120,7 +120,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // **************************************
           // Detekt plugin configuration
           // **************************************
-          if (kotlin.enabled) {
+          if (kotlinEx.enabled) {
             detekt {
               config = files(".coppuccino/detekt/detekt.yml")
               excludes: ".*build.*,.*/resources/.*,.*/tmp/.*"
