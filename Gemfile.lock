@@ -1,6 +1,6 @@
 GEM
-  remote: https://rubygems.org/
-  remote: https://gems.internal.mx/
+  remote: https://artifactory.internal.mx/api/gems/read-only-mirror.rubygems.org/
+  remote: https://artifactory.internal.mx/api/gems/gems.internal.mx/
   specs:
     binks (0.0.6)
       thor (>= 0.20.3)
