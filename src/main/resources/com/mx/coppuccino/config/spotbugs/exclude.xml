@@ -7,6 +7,11 @@
     <Source name="~.*\.groovy"/>
   </Match>
 
+  <!-- Do not check generated files -->
+  <Match>
+    <Source name="~.*generated.*\.java"/>
+  </Match>
+
   <Match>
     <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
   </Match>
