@@ -2,9 +2,9 @@ GEM
   remote: https://artifactory.internal.mx/api/gems/read-only-mirror.rubygems.org/
   remote: https://artifactory.internal.mx/api/gems/gems.internal.mx/
   specs:
-    binks (0.0.6)
+    binks (0.0.9)
       thor (>= 0.20.3)
-    thor (1.0.1)
+    thor (1.1.0)
 
 PLATFORMS
   ruby
