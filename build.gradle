@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.mx.coppuccino'
-version '0.2.6'
+version '0.2.7'
 
 sourceCompatibility = 1.8
 
@@ -35,7 +35,7 @@ dependencies {
 
 project.description     = 'Java style, standard, and safety enforcement'
 project.group           = 'com.mx.coppuccino'
-project.version         = '0.2.6'
+project.version         = '0.2.7'
 
 project.ext.name        = 'coppuccino'
 project.ext.pluginId    = 'com.mx.coppuccino'
