@@ -75,6 +75,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             configDir = '.coppuccino'
             sourceSets = [project.sourceSets.main]
             excludeSources = fileTree('build/generated')
+            excludeSources = excludeSources.plus(fileTree('build/generatedsources'))
           }
 
           // **************************************
@@ -88,7 +89,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
               greclipse('4.10.0').configFile('.coppuccino/spotless/eclipse-formatter.xml')
               target project.fileTree(project.rootDir) {
                 include '**/*.gradle', '**/*.groovy'
-                exclude 'build/generated/**/*.*', '.gradle/**/*.*'
+                exclude 'build/generated/**/*.*', '.gradle/**/*.*', 'build/generatedsources/**/*.*'
               }
             }
 
@@ -100,7 +101,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
               removeUnusedImports()
               target project.fileTree(project.rootDir) {
                 include '**/*.java'
-                exclude 'build/generated/**/*.*', '.gradle/**/*.*'
+                exclude 'build/generated/**/*.*', '.gradle/**/*.*', 'build/generatedsources/**/*.*'
               }
             }
 
