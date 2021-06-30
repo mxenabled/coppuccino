@@ -2,11 +2,6 @@
 <FindBugsFilter>
   <!-- See: https://spotbugs.readthedocs.io/en/stable/filter.html -->
 
-  <!-- Do not check groovy -->
-  <Match>
-    <Source name="~.*\.groovy"/>
-  </Match>
-
   <!-- Do not check generated files -->
   <Match>
     <Source name="~.*generated.*\.java"/>
