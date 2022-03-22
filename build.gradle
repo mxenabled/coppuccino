@@ -65,7 +65,7 @@ artifactory {
             publishBuildInfo = true
             publishArtifacts = true
             publishPom = true
-            invokeMethod("publications", publishing.publications.names.toTypedArray())
+            invokeMethod("publications", publishing.publications.names.toArray())
         }
     }
     resolve {
