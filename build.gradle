@@ -9,7 +9,7 @@ plugins {
 }
 
 group 'com.mx.coppuccino'
-version '0.5.0'
+version '0.5.100.pre'
 
 sourceCompatibility = 1.8
 
@@ -33,7 +33,7 @@ dependencies {
 
 project.description     = 'Java style, standard, and safety enforcement'
 project.group           = 'com.mx.coppuccino'
-project.version         = '0.5.0'
+project.version         = '0.5.100.pre'
 
 project.ext.name        = 'coppuccino'
 project.ext.pluginId    = 'com.mx.coppuccino'
@@ -61,11 +61,10 @@ artifactory {
             maven = true
         }
         defaults {
-            publishConfigs("archives")
-            publishBuildInfo = false
-            publishPom = false
-            publishIvy = false
-            invokeMethod("publications", publishing.publications.names.toArray())
+            defaults { publications("mavenJava") }
+            publishBuildInfo = true
+            publishArtifacts = true
+            publishPom = true
         }
     }
     resolve {
@@ -74,6 +73,12 @@ artifactory {
             username = "maven-read"
             maven = true
         }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(org.gradle.api.publish.maven.MavenPublication) { from components.java }
     }
 }
 
