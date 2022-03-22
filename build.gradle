@@ -9,7 +9,7 @@ plugins {
 }
 
 group 'com.mx.coppuccino'
-version '0.5.100.pre'
+version '0.5.101.pre'
 
 sourceCompatibility = 1.8
 
@@ -65,6 +65,7 @@ artifactory {
             publishBuildInfo = true
             publishArtifacts = true
             publishPom = true
+            invokeMethod("publications", publishing.publications.names.toTypedArray())
         }
     }
     resolve {
@@ -73,12 +74,6 @@ artifactory {
             username = "maven-read"
             maven = true
         }
-    }
-}
-
-publishing {
-    publications {
-        mavenJava(org.gradle.api.publish.maven.MavenPublication) { from components.java }
     }
 }
 
