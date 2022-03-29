@@ -225,8 +225,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
             }
           }
 
-          project.tasks.spotlessGroovy.dependsOn(compileJava, compileTestGroovy, test)
-          project.tasks.spotlessJava.dependsOn(compileJava, compileTestGroovy, spotlessGroovy, test)
+          project.tasks.spotlessGroovy.dependsOn(compileJava, compileTestGroovy)
+          project.tasks.spotlessJava.dependsOn(compileJava, compileTestGroovy, spotlessGroovy)
 
         }
       }
