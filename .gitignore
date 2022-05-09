@@ -1,0 +1,20 @@
+**/.DS_Store
+
+### VS Code ###
+.vscode/
+
+### IntelliJ IDEA ###
+.idea
+**.iws
+**.ipr
+**.iml
+out/
+
+### Mem Dumps ###
+dump.rdb
+
+## gradle ##
+build
+.gradle/
+
+.coppuccino/
