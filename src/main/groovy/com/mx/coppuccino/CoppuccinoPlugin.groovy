@@ -227,7 +227,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
                 componentSelection {
                   // ignore all versions that end with 'pre'
                   all { ComponentSelection selection ->
-                    if (selection.candidate.version.endsWith('pre')) {
+                    if (selection.candidate.version.endsWith('pre') || selection.candidate.version.endsWith('prerelease')) {
                       selection.reject("pre versions are ignored")
                     }
                   }
