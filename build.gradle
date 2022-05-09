@@ -1,82 +1,45 @@
 
 plugins {
-    id 'java-gradle-plugin'
+    id "java-gradle-plugin"
     id "java-library"
     id "maven-publish"
     id "groovy"
-    id "com.jfrog.artifactory" version "4.16.1"
-    id 'com.github.ben-manes.versions' version '0.28.0'
+    id "com.github.ben-manes.versions" version "0.28.0"
 }
 
-group 'com.mx.coppuccino'
-version '1.0.1'
+group "com.mx.coppuccino"
+version "1.0.1"
 
 sourceCompatibility = 1.8
 
 repositories {
-    maven { url "https://artifactory.internal.mx:443/maven-local" }
-    maven { url "https://artifactory.internal.mx:443/gradle-local" }
     gradlePluginPortal()
     mavenLocal()
 }
 
 dependencies {
-    implementation 'ru.vyarus:gradle-quality-plugin:4.3.0'
-    implementation 'com.github.spotbugs:spotbugs-gradle-plugin:3.0.0'
-    implementation 'com.diffplug.spotless:spotless-plugin-gradle:6.5.2'
-    implementation 'io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.10.0'
-    implementation 'org.kordamp.gradle:jacoco-gradle-plugin:0.39.0'
-    implementation 'org.owasp:dependency-check-gradle:6.5.3'
-    testImplementation group: 'junit', name: 'junit', version: '4.13'
+    implementation "ru.vyarus:gradle-quality-plugin:4.3.0"
+    implementation "com.github.spotbugs:spotbugs-gradle-plugin:3.0.0"
+    implementation "com.diffplug.spotless:spotless-plugin-gradle:6.5.2"
+    implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.10.0"
+    implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.39.0"
+    implementation "org.owasp:dependency-check-gradle:6.5.3"
+    testImplementation group: "junit", name: "junit", version: "4.13"
 }
 
-project.description     = 'Java style, standard, and safety enforcement'
-project.group           = 'com.mx.coppuccino'
-project.version         = '1.0.1'
+project.description     = "Java style, standard, and safety enforcement"
+project.group           = "com.mx.coppuccino"
+project.version         = "1.0.1"
 
-project.ext.name        = 'coppuccino'
-project.ext.pluginId    = 'com.mx.coppuccino'
-project.ext.scm         = 'scm:git@gitlab.mx.com:mx/coppuccino.git'
-project.ext.url         = 'https://gitlab.mx.com/mx/coppuccino'
+project.ext.name        = "coppuccino"
+project.ext.pluginId    = "com.mx.coppuccino"
+project.ext.url         = "https://github.com/mxenabled/Coppuccino"
 
 gradlePlugin {
     plugins {
         coppuccinoPlugin {
             id = project.pluginId
-            implementationClass = 'com.mx.coppuccino.CoppuccinoPlugin'
+            implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
         }
     }
-}
-
-artifactoryPublish { dependsOn jar }
-
-artifactory {
-    contextUrl = "https://artifactory.internal.mx:443"
-    publish {
-        repository {
-            repoKey = "gradle-local"
-            username = "gradle-write"
-            password = System.getenv("GRADLE_ARTIFACTORY_API_KEY")
-            maven = true
-        }
-        defaults {
-            publishConfigs("archives")
-            publishBuildInfo = false
-            publishPom = false
-            publishIvy = false
-            invokeMethod("publications", publishing.publications.names.toArray())
-        }
-    }
-    resolve {
-        repository {
-            repoKey = "maven-local"
-            username = "maven-read"
-            maven = true
-        }
-    }
-}
-
-artifactoryPublish {
-    contextUrl = "https://artifactory.internal.mx:443"
-    dependsOn jar
 }
