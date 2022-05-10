@@ -1,17 +1,16 @@
-# Description
+# Summary of Changes
 
 Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
 Fixes # (issue)
 
-## Type of change
+## Public API Additions/Changes
 
-Please delete options that are not relevant.
+Please include a description of any new or modified publicly available classes and/or methods (if applicable).
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
+## Downstream Consumer Impact
+
+Please include a description of how downstream consumers will be affected (breaking changes, bug fixes, internal behavior modification, etc.). If this PR introduces breaking changes please list out each of the breaking changes, as well as steps for migrating incompatible code.
 
 # How Has This Been Tested?
 
