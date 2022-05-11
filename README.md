@@ -1,19 +1,53 @@
 # Coppuccino
 
-![](https://s.yimg.com/aah/yhst-133668139843133/coppuccino-police-patch-17.jpg)
+Gradle plugin collection for Java/Kotlin/Groovy style, standard, and safety enforcement.
 
-Gradle plugin of Java style, standard, and safety enforcement.
+## What does it do?
 
-Pulls together and configures:
-* Spotless
-* Gradle Quality Plugin
-  * Pmd
-  * Spotbugs
-  * Checkstyle
+Pulls together and configures the best java, kotlin, groovy style plugins. Defaults are setup for MX developers, but can be overridden.
+
+Plugins:
+* [Detekt](https://detekt.dev/)
+* [Gradle Dependency Check](https://plugins.gradle.org/plugin/org.owasp.dependencycheck)
+* [Jacoco](https://www.jacoco.org/jacoco)
+* [Spotless](https://github.com/diffplug/spotless/tree/main/plugin-gradle)
+* [Gradle Quality Plugin](https://github.com/xvik/gradle-quality-plugin)
+  * [Pmd](https://docs.gradle.org/current/userguide/pmd_plugin.html)
+  * [Spotbugs](https://github.com/spotbugs/spotbugs-gradle-plugin)
+  * [Checkstyle](https://docs.gradle.org/current/userguide/checkstyle_plugin.html)
+  * [CodeNarc](https://docs.gradle.org/current/userguide/codenarc_plugin.html)
+
+## Installing
 
 ```
 plugins {
   id: "coppuccino"
+}
+```
+
+## Configuration
+
+Example configuration with default values:
+
+_In build.gradle_
+```
+coppuccino {
+  rootDir = "" # Relative path to project root
+  coverage {
+    minimumCoverage = 0.0   # Required percentage of test code coverage.
+    excludes [ # Package paths to exclude from coverage calculation
+      'com.mx.mdx.models.*',
+      'com.mx.mdx.Resources.*',
+      'com.mx.mdx.Resources'
+    ]
+  }
+  dependencies {
+    lockingEnabled = true
+    excludePreReleaseVersions = true # Set to false to allow for #.#.3.pre release versions to be included in --write-locks
+  }
+  kotlin {
+    enabled = false # Set to true to enable kotlin linting with Detekt
+  }
 }
 ```
 
