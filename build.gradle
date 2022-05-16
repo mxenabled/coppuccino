@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     implementation "ru.vyarus:gradle-quality-plugin:4.3.0"
-    implementation "com.github.spotbugs:spotbugs-gradle-plugin:3.0.0"
+    implementation "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.6"
     implementation "com.diffplug.spotless:spotless-plugin-gradle:6.5.2"
     implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.10.0"
     implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.39.0"

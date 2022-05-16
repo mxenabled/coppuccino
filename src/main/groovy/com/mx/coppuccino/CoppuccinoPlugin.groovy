@@ -118,7 +118,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
             if (kotlinEx.enabled) {
               kotlin {
-                ktlint('0.37.2').userData(
+                ktlint('0.39.0').userData(
                     [
                         'indent_size'             : '2',
                         'continuation_indent_size': '2',
