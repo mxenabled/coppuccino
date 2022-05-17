@@ -43,3 +43,13 @@ gradlePlugin {
         }
     }
 }
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            groupId "com.github.mxenabled.coppuccino"
+            artifactId "com.github.mxenabled.coppuccino.gradle.plugin"
+        }
+    }
+}
