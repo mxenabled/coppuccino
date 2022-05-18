@@ -41,15 +41,9 @@ gradlePlugin {
             id = project.pluginId
             implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
         }
-    }
-}
-
-publishing {
-    publications {
-        mavenPublication(MavenPublication) {
-            from components.java
-            groupId "com.github.mxenabled.coppuccino"
-            artifactId "com.github.mxenabled.coppuccino.gradle.plugin"
+        coppuccinoJitPackPlugin {
+            id = "com.github.mxenabled.coppuccino"
+            implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
         }
     }
 }
