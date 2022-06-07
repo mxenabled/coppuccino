@@ -102,7 +102,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           spotless {
             groovy {
               importOrder('java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor')
-              greclipse('4.10.0').configFile("${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml")
+              greclipse('4.21.0').configFile("${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml")
               target "**/*.gradle", "**/*.groovy"
               targetExclude "build/generated/**/*.*", ".gradle/**/*.*", "build/generatedsources/**/*.*"
             }
