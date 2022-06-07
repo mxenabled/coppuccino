@@ -85,6 +85,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           quality {
             checkstyleVersion = '8.29'
             checkstyle = true
+            codenarc = false
             pmd = true
             spotbugs = true
             configDir = "${coppuccino.rootDir}.coppuccino"

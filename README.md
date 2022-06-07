@@ -15,7 +15,6 @@ Plugins:
   * [Pmd](https://docs.gradle.org/current/userguide/pmd_plugin.html)
   * [Spotbugs](https://github.com/spotbugs/spotbugs-gradle-plugin)
   * [Checkstyle](https://docs.gradle.org/current/userguide/checkstyle_plugin.html)
-  * [CodeNarc](https://docs.gradle.org/current/userguide/codenarc_plugin.html)
 
 ## Installing
 
