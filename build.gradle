@@ -31,7 +31,7 @@ dependencies {
 
 project.description     = "Java style, standard, and safety enforcement"
 project.group           = "com.mx.coppuccino"
-project.version         = "1.1.2"
+project.version         = rootProject.version
 
 project.ext.name        = "coppuccino"
 project.ext.pluginId    = "com.mx.coppuccino"
