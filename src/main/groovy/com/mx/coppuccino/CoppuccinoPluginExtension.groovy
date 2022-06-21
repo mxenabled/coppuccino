@@ -28,13 +28,6 @@ class CoppuccinoCoverageExtension {
   ]
 }
 
-class CoppuccinoDependenciesExtension {
-  // Enable Dependency locking on all configurations
-  boolean lockingEnabled = true
-
-  // Ignore pre releases in dynamic version resolution
-  boolean excludePreReleaseVersions = true
-}
 
 class CoppuccinoKotlinExtension {
   // Disable kotlin support by default
