@@ -38,6 +38,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
     // Register extensions for config DSL
     def coppuccino = project.extensions.create('coppuccino', CoppuccinoPluginExtension)
     def coverage = project.extensions.coppuccino.extensions.create('coverage', CoppuccinoCoverageExtension)
+    def dependencies = project.extensions.coppuccino.extensions.create('dependencies', CoppuccinoDependenciesExtension)
     def kotlinEx = project.extensions.coppuccino.extensions.create('kotlin', CoppuccinoKotlinExtension)
 
     project.plugins.withType(JavaPlugin) {
@@ -189,6 +190,26 @@ class CoppuccinoPlugin implements Plugin<Project> {
                   def startItem = '|  ', endItem = '  |'
                   def repeatLength = startItem.length() + output.length() + endItem.length()
                   println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+                }
+              }
+            }
+          }
+
+          if (dependencies.lockingEnabled) {
+            dependencyLocking { lockAllConfigurations() }
+          }
+
+          if (dependencies.excludePreReleaseVersions) {
+            configurations.all {
+              resolutionStrategy {
+                cacheDynamicVersionsFor 0, "seconds"
+                componentSelection {
+                  // ignore all versions that end with 'pre'
+                  all { ComponentSelection selection ->
+                    if (selection.candidate.version.endsWith('pre')) {
+                      selection.reject("pre versions are ignored")
+                    }
+                  }
                 }
               }
             }
