@@ -39,7 +39,6 @@ allprojects {
 Example configuration with default values:
 
 _In build.gradle_
-
 ```
 coppuccino {
   rootDir = "" # Relative path to project root
