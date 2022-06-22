@@ -8,7 +8,7 @@ Pulls together and configures the best java, kotlin, groovy style plugins. Defau
 
 Plugins:
 * [Detekt](https://detekt.dev/)
-* [Gradle Dependency Check](https://plugins.gradle.org/plugin/org.owasp.dependencycheck)
+* [Gradle Dependency Check](https://plugins.gradle.org/plugin/org.owasp.dependencycheck) (**Removed as of 2.0.0**)
 * [Jacoco](https://www.jacoco.org/jacoco)
 * [Spotless](https://github.com/diffplug/spotless/tree/main/plugin-gradle)
 * [Gradle Quality Plugin](https://github.com/xvik/gradle-quality-plugin)
