@@ -36,7 +36,6 @@ class CoppuccinoDependenciesExtension {
   boolean excludePreReleaseVersions = true
 }
 
-
 class CoppuccinoKotlinExtension {
   // Disable kotlin support by default
   boolean enabled = false
