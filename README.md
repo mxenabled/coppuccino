@@ -40,7 +40,6 @@ Example configuration with default values:
 
 _In build.gradle_
 
-**Prior to 2.0.0:**
 ```
 coppuccino {
   rootDir = "" # Relative path to project root
@@ -61,26 +60,6 @@ coppuccino {
   }
 }
 ```
-
-**2.0.0+:**
-```
-coppuccino {
-  rootDir = "" # Relative path to project root
-  coverage {
-    minimumCoverage = 0.0   # Required percentage of test code coverage.
-    excludes [ # Package paths to exclude from coverage calculation
-      'com.mx.mdx.models.*',
-      'com.mx.mdx.Resources.*',
-      'com.mx.mdx.Resources'
-    ]
-  }
-  kotlin {
-    enabled = false # Set to true to enable kotlin linting with Detekt
-  }
-}
-```
-
-*Note the removed `dependencies` block, which does not exist from 2.0.0 onward.*
 
 Init MX style configurations
 
