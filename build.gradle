@@ -8,7 +8,7 @@ plugins {
 }
 
 group "com.mx.coppuccino"
-version "2.0.1"
+version "2.0.0"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -22,7 +22,7 @@ dependencies {
     implementation "ru.vyarus:gradle-quality-plugin:4.7.0"
     implementation 'com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.6'
     implementation ("com.diffplug.spotless:spotless-plugin-gradle:6.6.1") {
-        exclude group: 'com.google.googlejavaformat', module: 'google-java-format-parent'
+        exclude group: "com.google.googlejavaformat", module: "google-java-format-parent"
     }
     implementation "com.google.googlejavaformat:google-java-format-parent:1.15.0"
     implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.10.0"
