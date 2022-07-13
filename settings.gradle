@@ -1,1 +1,10 @@
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    mavenLocal()
+    maven {
+      url 'https://jitpack.io'
+    }
+  }
+}
 rootProject.name = 'coppuccino'
