@@ -18,3 +18,4 @@ build
 .gradle/
 
 .coppuccino/
+.dependency-check-data
