@@ -1,3 +1,6 @@
+[![Release](https://jitpack.io/v/User/Repo.svg)]
+(https://jitpack.io/#User/Repo)
+
 # Coppuccino
 
 Gradle plugin collection for Java/Kotlin/Groovy style, standard, and safety enforcement.
