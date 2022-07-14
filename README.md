@@ -1,5 +1,4 @@
-[![Release](https://jitpack.io/v/User/Repo.svg)]
-(https://jitpack.io/#User/Repo)
+[![Release](https://jitpack.io/v/mxenabled/coppuccino.svg)](https://jitpack.io/p/mxenabled/coppuccino)
 
 # Coppuccino
 
