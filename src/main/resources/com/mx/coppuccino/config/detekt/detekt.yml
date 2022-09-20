@@ -412,7 +412,7 @@ potential-bugs:
     active: false
   IgnoredReturnValue:
     active: false
-    restrictToAnnotatedMethods: true
+    restrictToConfig: true
     returnValueAnnotations:
       - '*.CheckResult'
       - '*.CheckReturnValue'
@@ -480,7 +480,8 @@ style:
     active: false
   DataClassContainsFunctions:
     active: false
-    conversionFunctionPrefix: 'to'
+    conversionFunctionPrefix:
+      - 'to'
   DataClassShouldBeImmutable:
     active: false
   DestructuringDeclarationWithTooManyEntries:
@@ -528,7 +529,7 @@ style:
     active: true
     ignoreOverridableFunction: true
     ignoreActualFunction: true
-    excludedFunctions: ''
+    excludedFunctions: []
   LibraryCodeMustSpecifyReturnType:
     active: true
     excludes: ['**']
@@ -599,7 +600,8 @@ style:
   ReturnCount:
     active: true
     max: 2
-    excludedFunctions: 'equals'
+    excludedFunctions:
+      - 'equals'
     excludeLabeled: false
     excludeReturnFromLambda: true
     excludeGuardClauses: false
