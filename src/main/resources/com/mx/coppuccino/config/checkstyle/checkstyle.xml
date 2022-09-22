@@ -107,7 +107,7 @@
     <!-- defaults to sun.* packages -->
     <module name="RedundantImport" />
     <module name="UnusedImports">
-      <property name="processJavadoc" value="false" />
+      <property name="processJavadoc" value="true" /> <!-- This counts an import as used if it is referenced in JavaDocs in the file -->
     </module>
 
     <!-- Checks for Size Violations.                    -->
