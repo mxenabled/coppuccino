@@ -117,10 +117,10 @@ class CoppuccinoPlugin implements Plugin<Project> {
               excludes: "${coppuccino.rootDir}.*build.*,.*/resources/.*,.*/tmp/.*"
             }
           }
+
           // **************************************
           // JaCoCo test coverage configuration
           // **************************************
-
           test.finalizedBy jacocoTestReport
           check.dependsOn jacocoTestCoverageVerification
 
@@ -217,7 +217,6 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
           project.tasks.spotlessGroovy.dependsOn(compileJava, compileTestGroovy)
           project.tasks.spotlessJava.dependsOn(compileJava, compileTestGroovy, spotlessGroovy)
-
         }
       }
     }
