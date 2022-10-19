@@ -1,21 +1,31 @@
-**/.DS_Store
+/target/
+.DS_Store
 
 ### VS Code ###
 .vscode/
 
 ### IntelliJ IDEA ###
 .idea
-**.iws
-**.ipr
-**.iml
-out/
+*.iws
+*.iml
+*.ipr
+*.hprof
+/out/**
 
-### Mem Dumps ###
-dump.rdb
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
 
-## gradle ##
-build
-.gradle/
+## Gradle ##
+.gradle
+**/build/
+!src/**/build/
 
-.coppuccino/
+## Coppuccino ##
+.coppuccino
+
+## Hush ##
 .dependency-check-data
