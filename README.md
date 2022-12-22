@@ -23,11 +23,11 @@ Plugins:
 Coppuccino is hosted via [JitPack](https://jitpack.io/p/mxenabled/coppuccino). To import it into your project,
 configure the JitPack repository in your `build.gradle`.
 
+<!-- x-release-please-start-version -->
 ```groovy
 plugins {
-  id: "com.github.mxenabled.coppuccino" version "x.x.x"
+  id: "com.github.mxenabled.coppuccino" version "3.1.3"
 }
-
 allprojects {
     repositories {
         ...
@@ -35,6 +35,7 @@ allprojects {
     }
 }
 ```
+<!-- x-release-please-end -->
 
 ## Configuration
 

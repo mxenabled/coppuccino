@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+name: release
+
+jobs:
+  release:
+    permissions: write-all
+    uses: mxenabled/path-tools/.github/workflows/release_manifest.yml@master
+    with:
+      dry-run: true
+    secrets:
+      OSSRH_USERNAME: not_published
+      OSSRH_TOKEN: not_published
+      GPG_SIGNING_KEY_BASE64: not_published
+      GPG_SIGNING_PASSPHRASE: not_published

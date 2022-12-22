@@ -29,3 +29,6 @@
 
 ## Hush ##
 .dependency-check-data
+
+## Node ##
+node_modules
