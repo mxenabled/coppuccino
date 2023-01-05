@@ -69,8 +69,8 @@ class SpotbugsConsoleReporter {
         out.style(Style.FailureHeader)
             .text("[${plugin}${cat[bug.@category]} | ${bugType}] $pkg(${cls}:${srcPosition})  ")
             .style(Style.Identifier).println("[priority ${bug.@priority} / rank ${bug.@rank}]")
-            .style(Style.Failure).println("> Violation: ").style(Style.Error).println("${msg.text()}$NL")
-            .style(Style.Failure).println("> Description: ").style(Style.Error).println("  ${description}$NL$NL")
+            .style(Style.Failure).println("> Violation: ").style(Style.Error).println("  ${msg.text()}")
+            .style(Style.Failure).println("> Details: ").style(Style.Error).println("  ${description}$NL")
       }
 
       generateHtmlReport(reportFile)
