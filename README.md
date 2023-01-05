@@ -26,7 +26,7 @@ configure the JitPack repository in your `build.gradle`.
 <!-- x-release-please-start-version -->
 ```groovy
 plugins {
-  id: "com.github.mxenabled.coppuccino" version "3.1.4"
+  id: "com.github.mxenabled.coppuccino" version "3.2.0"
 }
 allprojects {
     repositories {
