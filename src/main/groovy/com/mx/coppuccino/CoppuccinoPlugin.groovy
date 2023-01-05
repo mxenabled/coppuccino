@@ -28,6 +28,8 @@ import ru.vyarus.gradle.plugin.quality.QualityPlugin
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.internal.logging.text.StyledTextOutputFactory
+import org.gradle.internal.logging.text.StyledTextOutput.Style
 
 @CompileStatic
 class CoppuccinoPlugin implements Plugin<Project> {
@@ -65,12 +67,13 @@ class CoppuccinoPlugin implements Plugin<Project> {
             checkstyle = true
             codenarc = false
             pmd = true
-            spotbugs = true
+            spotbugs = false
             configDir = "${coppuccino.rootDir}.coppuccino"
             sourceSets = [project.sourceSets.main]
             excludeSources = fileTree("${coppuccino.rootDir}build/generated")
             excludeSources = excludeSources.plus(fileTree("${coppuccino.rootDir}build/generatedsources"))
           }
+
 
           // **************************************
           // Spotless plugin configuration
@@ -107,6 +110,32 @@ class CoppuccinoPlugin implements Plugin<Project> {
               }
             }
           }
+
+          // **************************************
+          // Spotbugs plugin configuration
+          // Configuration options:
+          //   https://github.com/spotbugs/spotbugs-gradle-plugin
+          // **************************************
+          spotbugsMain {
+            effort = "max"
+            reportLevel = "medium"
+            extraArgs = [ "-longBugCodes" ]
+            excludeFilter = file("${coppuccino.rootDir}.coppuccino/spotbugs/exclude.xml")
+            reports {
+              xml.required = true
+            }
+          }
+
+          project.task("spotbugsReport") {
+            doLast {
+              try {
+                new SpotbugsConsoleReporter(project, coppuccino).report()
+              } catch(Exception e) {
+                project.logger.error("Unable to generate spotbugs report", e)
+              }
+            }
+          }
+          tasks.getByPath("spotbugsMain").finalizedBy("spotbugsReport")
 
           // **************************************
           // Detekt plugin configuration

@@ -43,6 +43,12 @@ class CopyCopConfig {
     target.text = ''
     target << stream.text
 
+    target = new File(Paths.get("${projectRoot}.coppuccino/spotbugs/html-report-style.xsl").toString())
+    target.getParentFile().mkdirs()
+    stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/spotbugs/html-report-style.xsl")
+    target.text = ''
+    target << stream.text
+
     target = new File(Paths.get("${projectRoot}.coppuccino/spotless/eclipse-formatter.xml").toString())
     target.getParentFile().mkdirs()
     stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/spotless/eclipse-formatter.xml")
