@@ -16,20 +16,20 @@
 package com.mx.coppuccino
 
 import com.diffplug.gradle.spotless.SpotlessPlugin
+import com.github.spotbugs.snom.SpotBugsPlugin
+import com.github.spotbugs.snom.SpotBugsTask
 import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
+import io.gitlab.arturbosch.detekt.DetektPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ComponentSelection
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.tasks.testing.Test
-import org.kordamp.gradle.plugin.jacoco.JacocoPlugin
-import ru.vyarus.gradle.plugin.quality.QualityPlugin
-import io.gitlab.arturbosch.detekt.DetektPlugin
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.gradle.internal.logging.text.StyledTextOutputFactory
-import org.gradle.internal.logging.text.StyledTextOutput.Style
+import org.kordamp.gradle.plugin.jacoco.JacocoPlugin
+import ru.vyarus.gradle.plugin.quality.QualityPlugin
 
 @CompileStatic
 class CoppuccinoPlugin implements Plugin<Project> {
@@ -53,6 +53,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
         project.tasks.register('configureCoppuccino', SetupCoppuccino)
         project.plugins.apply(QualityPlugin)
         project.plugins.apply(SpotlessPlugin)
+        project.plugins.apply(SpotBugsPlugin)
         if (kotlinEx.enabled) {
           project.plugins.apply(DetektPlugin)
         }
@@ -73,7 +74,6 @@ class CoppuccinoPlugin implements Plugin<Project> {
             excludeSources = fileTree("${coppuccino.rootDir}build/generated")
             excludeSources = excludeSources.plus(fileTree("${coppuccino.rootDir}build/generatedsources"))
           }
-
 
           // **************************************
           // Spotless plugin configuration
@@ -116,14 +116,11 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // Configuration options:
           //   https://github.com/spotbugs/spotbugs-gradle-plugin
           // **************************************
-          spotbugsMain {
+          spotbugs {
             effort = "max"
             reportLevel = "medium"
             extraArgs = [ "-longBugCodes" ]
             excludeFilter = file("${coppuccino.rootDir}.coppuccino/spotbugs/exclude.xml")
-            reports {
-              xml.required = true
-            }
           }
 
           project.task("spotbugsReport") {
@@ -135,7 +132,13 @@ class CoppuccinoPlugin implements Plugin<Project> {
               }
             }
           }
-          tasks.getByPath("spotbugsMain").finalizedBy("spotbugsReport")
+
+          tasks.withType(SpotBugsTask).configureEach { task ->
+            reports {
+              xml.required = true
+            }
+            task.finalizedBy("spotbugsReport")
+          }
 
           // **************************************
           // Detekt plugin configuration
