@@ -7,6 +7,11 @@
     <Source name="~.*generated.*\.java"/>
   </Match>
 
+  <!-- Do not check groovy -->
+  <Match>
+    <Source name="~.*\.groovy"/>
+  </Match>
+
   <Match>
     <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
   </Match>
@@ -39,4 +44,11 @@
     <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" />
   </Match>
 
+  <Match>
+    <!-- Disabled due to confusing false positives -->
+    <Or>
+      <Bug pattern="EI_EXPOSE_REP"/>
+      <Bug pattern="EI_EXPOSE_REP2"/>
+    </Or>
+  </Match>
 </FindBugsFilter>
