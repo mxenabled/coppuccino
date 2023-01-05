@@ -12,8 +12,9 @@
     <Source name="~.*\.groovy"/>
   </Match>
 
+  <!-- Do not check test code -->
   <Match>
-    <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
+    <Source name="~.*src/test/.*"/>
   </Match>
 
   <!-- Disable check -->
@@ -42,6 +43,10 @@
 
   <Match>
     <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" />
+  </Match>
+
+  <Match>
+    <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
   </Match>
 
   <Match>
