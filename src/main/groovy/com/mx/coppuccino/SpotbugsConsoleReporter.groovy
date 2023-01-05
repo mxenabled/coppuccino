@@ -1,14 +1,10 @@
 package com.mx.coppuccino
 
-import com.github.spotbugs.snom.SpotBugsTask
 import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
 import org.gradle.api.Project
-
-import org.gradle.internal.logging.text.StyledTextOutputFactory
 import org.gradle.internal.logging.text.StyledTextOutput.Style
-//
-
+import org.gradle.internal.logging.text.StyledTextOutputFactory
 
 class SpotbugsConsoleReporter {
   static String toConsoleLink(File file) {
@@ -29,7 +25,7 @@ class SpotbugsConsoleReporter {
   private Project project
   private CoppuccinoPluginExtension coppuccino
 
-  SpotbugsConsoleReporter (Project project, CoppuccinoPluginExtension coppuccino) {
+  SpotbugsConsoleReporter(Project project, CoppuccinoPluginExtension coppuccino) {
     this.coppuccino = coppuccino
     this.project = project
   }
