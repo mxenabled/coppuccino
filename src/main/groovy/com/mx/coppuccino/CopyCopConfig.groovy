@@ -21,44 +21,36 @@ import java.nio.file.Paths
 @CompileStatic
 class CopyCopConfig {
 
-  CopyCopConfig() {
+  String projectRoot
+
+  CopyCopConfig(String projectRoot) {
+    this.projectRoot = projectRoot
   }
 
-  void run(String projectRoot) {
-    File target = new File(Paths.get("${projectRoot}.coppuccino/pmd/pmd.xml").toString())
-    target.getParentFile().mkdirs()
-    InputStream stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/pmd/pmd.xml")
-    target.text = ''
-    target << stream.text
+  void run() {
+    ensureProjectDirectory(".coppuccino/")
 
-    target = new File(Paths.get("${projectRoot}.coppuccino/checkstyle/checkstyle.xml").toString())
-    target.getParentFile().mkdirs()
-    stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/checkstyle/checkstyle.xml")
-    target.text = ''
-    target << stream.text
+    copyConfigFile("/com/mx/coppuccino/config/pmd/pmd.xml", ".coppuccino/pmd/pmd.xml")
+    copyConfigFile("/com/mx/coppuccino/config/checkstyle/checkstyle.xml",".coppuccino/checkstyle/checkstyle.xml" )
+    copyConfigFile("/com/mx/coppuccino/config/spotbugs/exclude.xml", ".coppuccino/spotbugs/exclude.xml")
+    copyConfigFile("/com/mx/coppuccino/config/spotbugs/html-report-style.xsl", ".coppuccino/spotbugs/html-report-style.xsl")
+    copyConfigFile("/com/mx/coppuccino/config/spotless/eclipse-formatter.xml", ".coppuccino/spotless/eclipse-formatter.xml")
+    copyConfigFile("/com/mx/coppuccino/config/detekt/detekt.yml", ".coppuccino/detekt/detekt.yml")
+  }
 
-    target = new File(Paths.get("${projectRoot}.coppuccino/spotbugs/exclude.xml").toString())
-    target.getParentFile().mkdirs()
-    stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/spotbugs/exclude.xml")
+  private void copyConfigFile(String resourcePath, String dest) {
+    File target = new File(Paths.get(projectRoot, dest).toString())
+    ensureProjectDirectory(target.getParentFile().toPath().toString())
+    InputStream stream = getClass().getResourceAsStream(resourcePath)
     target.text = ''
     target << stream.text
+  }
 
-    target = new File(Paths.get("${projectRoot}.coppuccino/spotbugs/html-report-style.xsl").toString())
-    target.getParentFile().mkdirs()
-    stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/spotbugs/html-report-style.xsl")
-    target.text = ''
-    target << stream.text
+  private void ensureProjectDirectory(String pathStr) {
+    File path = new File(Paths.get(projectRoot, pathStr).toString())
 
-    target = new File(Paths.get("${projectRoot}.coppuccino/spotless/eclipse-formatter.xml").toString())
-    target.getParentFile().mkdirs()
-    stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/spotless/eclipse-formatter.xml")
-    target.text = ''
-    target << stream.text
-
-    target = new File(Paths.get("${projectRoot}.coppuccino/detekt/detekt.yml").toString())
-    target.getParentFile().mkdirs()
-    stream = getClass().getResourceAsStream("/com/mx/coppuccino/config/detekt/detekt.yml")
-    target.text = ''
-    target << stream.text
+    if (!path.exists()) {
+      path.mkdirs()
+    }
   }
 }
