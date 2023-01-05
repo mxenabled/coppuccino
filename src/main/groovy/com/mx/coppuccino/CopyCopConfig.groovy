@@ -16,20 +16,22 @@
 package com.mx.coppuccino
 
 import groovy.transform.CompileStatic
+import org.gradle.api.Project
+
 import java.nio.file.Paths
 
 @CompileStatic
 class CopyCopConfig {
 
   String projectRoot
+  Project project
 
-  CopyCopConfig(String projectRoot) {
+  CopyCopConfig(String projectRoot, Project project) {
     this.projectRoot = projectRoot
+    this.project = project
   }
 
   void run() {
-    ensureProjectDirectory(".coppuccino/")
-
     copyConfigFile("/com/mx/coppuccino/config/pmd/pmd.xml", ".coppuccino/pmd/pmd.xml")
     copyConfigFile("/com/mx/coppuccino/config/checkstyle/checkstyle.xml",".coppuccino/checkstyle/checkstyle.xml" )
     copyConfigFile("/com/mx/coppuccino/config/spotbugs/exclude.xml", ".coppuccino/spotbugs/exclude.xml")
@@ -40,16 +42,15 @@ class CopyCopConfig {
 
   private void copyConfigFile(String resourcePath, String dest) {
     File target = new File(Paths.get(projectRoot, dest).toString())
-    ensureProjectDirectory(target.getParentFile().toPath().toString())
+    ensureDirectory(target.getParentFile())
     InputStream stream = getClass().getResourceAsStream(resourcePath)
     target.text = ''
     target << stream.text
   }
 
-  private void ensureProjectDirectory(String pathStr) {
-    File path = new File(Paths.get(projectRoot, pathStr).toString())
-
+  private void ensureDirectory(File path) {
     if (!path.exists()) {
+      project.logger.info("Coppuccino: creating configuration path: ${path.toString()}")
       path.mkdirs()
     }
   }
