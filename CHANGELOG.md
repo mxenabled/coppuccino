@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/mxenabled/coppuccino/compare/3.2.0...3.2.1) (2023-01-06)
+
+
+### Bug Fixes
+
+* fix problem copying config files in multi-module projects ([02c9661](https://github.com/mxenabled/coppuccino/commit/02c96618a4b2069ecf168a4dbec2b53b797f56a7))
+
 ## [3.2.0](https://github.com/mxenabled/coppuccino/compare/3.1.4...3.2.0) (2023-01-05)
 
 
