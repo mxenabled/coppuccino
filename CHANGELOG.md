@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.2.2](https://github.com/mxenabled/coppuccino/compare/3.2.1...3.2.2) (2023-02-28)
+
+
+### Bug Fixes
+
+* remove Hush dependecy ([970a5c3](https://github.com/mxenabled/coppuccino/commit/970a5c3d7c4ae61af8845f1491f400fd429aed44))
+* update Hush to latest version ([4d098ca](https://github.com/mxenabled/coppuccino/commit/4d098ca58a212d4d765b0a0f977b693e693ae5df))
+* update test file exclusions to exclude .java files on windows systems ([0c4469b](https://github.com/mxenabled/coppuccino/commit/0c4469b92f3379ce409b293e76f853188c61b5dd))
+
 ## [3.2.1](https://github.com/mxenabled/coppuccino/compare/3.2.0...3.2.1) (2023-01-06)
 
 
