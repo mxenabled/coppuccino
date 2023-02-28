@@ -1,5 +1,4 @@
 plugins {
-  id "com.github.mxenabled.hush" version "2.3.3"
   id "com.github.mxenabled.vogue" version "1.0.2"
   id "groovy"
   id "java-gradle-plugin"
