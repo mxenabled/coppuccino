@@ -14,7 +14,7 @@
 
   <!-- Do not check test code -->
   <Match>
-    <Source name="~.*src/test/.*"/>
+    <Source name="~.*test.*\.java"/>
   </Match>
 
   <!-- Disable check -->
