@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.6](https://github.com/mxenabled/coppuccino/compare/3.2.5...3.2.6) (2023-03-06)
+
+
+### Bug Fixes
+
+* trying to line up the group ids for jitpack publishing ([275b688](https://github.com/mxenabled/coppuccino/commit/275b688b3fa9cdfce90463ea482a69f6f284be3e))
+
 ## [3.2.5](https://github.com/mxenabled/coppuccino/compare/3.2.4...3.2.5) (2023-03-06)
 
 
