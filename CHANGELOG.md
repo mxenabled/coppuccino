@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.4](https://github.com/mxenabled/coppuccino/compare/3.2.3...3.2.4) (2023-03-06)
+
+
+### Bug Fixes
+
+* groupid for jitpack deploy ([bebf4cf](https://github.com/mxenabled/coppuccino/commit/bebf4cf024c1800270c531732218a7788e83111f))
+
 ## [3.2.3](https://github.com/mxenabled/coppuccino/compare/3.2.2...3.2.3) (2023-03-06)
 
 
