@@ -31,18 +31,31 @@ dependencies {
   implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.47.0"
 }
 
-project.description     = "Java style, standard, and safety enforcement"
-project.group           = "com.github.mxenabled.coppuccino"
-project.version         = rootProject.version
+// project.description     = "Java style, standard, and safety enforcement"
+// project.group           = "com.github.mxenabled.coppuccino"
+// project.version         = rootProject.version
 
-project.ext.name        = "coppuccino"
-project.ext.pluginId    = "com.github.mxenabled.coppuccino"
-project.ext.url         = "https://github.com/mxenabled/Coppuccino"
+// project.ext.name        = "coppuccino"
+// project.ext.pluginId    = "com.github.mxenabled.coppuccino"
+// project.ext.url         = "https://github.com/mxenabled/Coppuccino"
+
+// gradlePlugin {
+//   plugins {
+//     coppuccinoPlugin {
+//       id = project.pluginId
+//       implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
+//     }
+//     coppuccinoJitPackPlugin {
+//       id = "com.github.mxenabled.coppuccino"
+//       implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
+//     }
+//   }
+// }
 
 gradlePlugin {
   plugins {
     coppuccinoPlugin {
-      id = project.pluginId
+      id = group
       implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
     }
     coppuccinoJitPackPlugin {
