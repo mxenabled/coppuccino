@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.3](https://github.com/mxenabled/coppuccino/compare/3.2.2...3.2.3) (2023-03-06)
+
+
+### Bug Fixes
+
+* explicitly create .coppuccino directory ([73ea543](https://github.com/mxenabled/coppuccino/commit/73ea5437bbe7e4aa6a2f7b53cbaaf713f1a1cef6))
+
 ## [3.2.2](https://github.com/mxenabled/coppuccino/compare/3.2.1...3.2.2) (2023-02-28)
 
 
