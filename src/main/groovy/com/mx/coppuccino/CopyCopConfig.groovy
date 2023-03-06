@@ -32,6 +32,11 @@ class CopyCopConfig {
   }
 
   void run() {
+    File configDir = new File(Paths.get(".coppuccino").toString())
+    if (!configDir.exists()) {
+      configDir.mkdir()
+    }
+
     copyConfigFile("/com/mx/coppuccino/config/pmd/pmd.xml", ".coppuccino/pmd/pmd.xml")
     copyConfigFile("/com/mx/coppuccino/config/checkstyle/checkstyle.xml",".coppuccino/checkstyle/checkstyle.xml" )
     copyConfigFile("/com/mx/coppuccino/config/spotbugs/exclude.xml", ".coppuccino/spotbugs/exclude.xml")
