@@ -9,7 +9,7 @@ plugins {
 }
 
 group "com.github.mxenabled.coppuccino"
-version "3.2.4" // x-release-please-version
+version "3.2.5" // x-release-please-version
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
