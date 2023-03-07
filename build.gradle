@@ -8,7 +8,7 @@ plugins {
   id "com.github.ben-manes.versions" version "0.43.0"
 }
 
-group "com.github.mxenabled.coppuccino"
+group "com.mx.coppuccino"
 version "3.2.8" // x-release-please-version
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -31,9 +31,21 @@ dependencies {
   implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.47.0"
 }
 
+project.description     = "Java style, standard, and safety enforcement"
+project.group           = "com.mx.coppuccino"
+project.version         = rootProject.version
+
+project.ext.name        = "coppuccino"
+project.ext.pluginId    = "com.mx.coppuccino"
+project.ext.url         = "https://github.com/mxenabled/Coppuccino"
+
 gradlePlugin {
   plugins {
     coppuccinoPlugin {
+      id = project.pluginId
+      implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
+    }
+    coppuccinoJitPackPlugin {
       id = "com.github.mxenabled.coppuccino"
       implementationClass = "com.mx.coppuccino.CoppuccinoPlugin"
     }
