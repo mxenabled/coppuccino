@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.7](https://github.com/mxenabled/coppuccino/compare/3.2.6...3.2.7) (2023-03-07)
+
+
+### Bug Fixes
+
+* bump version ([da24143](https://github.com/mxenabled/coppuccino/commit/da24143c1b8fca369170a336cfd632b99bc641a9))
+
 ## [3.2.6](https://github.com/mxenabled/coppuccino/compare/3.2.5...3.2.6) (2023-03-06)
 
 
