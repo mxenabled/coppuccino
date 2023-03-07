@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.8](https://github.com/mxenabled/coppuccino/compare/3.2.7...3.2.8) (2023-03-07)
+
+
+### Bug Fixes
+
+* groupid for jitpack deploy ([afb750d](https://github.com/mxenabled/coppuccino/commit/afb750d099f5ba7cf3f0b3291e17844c4fd17a5d))
+
 ## [3.2.7](https://github.com/mxenabled/coppuccino/compare/3.2.6...3.2.7) (2023-03-07)
 
 
