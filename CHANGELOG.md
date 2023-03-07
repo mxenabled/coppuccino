@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.9](https://github.com/mxenabled/coppuccino/compare/3.2.8...3.2.9) (2023-03-07)
+
+
+### Bug Fixes
+
+* restore build.gradle ([86504ea](https://github.com/mxenabled/coppuccino/commit/86504ea9754f7208bc7e98c1ef8a0b144cf579ec))
+
 ## [3.2.8](https://github.com/mxenabled/coppuccino/compare/3.2.7...3.2.8) (2023-03-07)
 
 
