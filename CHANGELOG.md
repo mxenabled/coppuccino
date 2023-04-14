@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.10](https://github.com/mxenabled/coppuccino/compare/3.2.9...3.2.10) (2023-04-14)
+
+
+### Bug Fixes
+
+* treat -rc. versions as pre-release ([49b3f63](https://github.com/mxenabled/coppuccino/commit/49b3f63f286efe3f8a8085f51ba21de22ccb1310))
+
 ## [3.2.9](https://github.com/mxenabled/coppuccino/compare/3.2.8...3.2.9) (2023-03-07)
 
 
