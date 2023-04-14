@@ -241,6 +241,9 @@ class CoppuccinoPlugin implements Plugin<Project> {
                     if (selection.candidate.version.endsWith('pre')) {
                       selection.reject("pre versions are ignored")
                     }
+                    if (selection.candidate.version.contains('-rc.')) {
+                      selection.reject("release candidate versions are ignored")
+                    }
                   }
                 }
               }
