@@ -45,7 +45,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
     project.plugins.withType(JavaPlugin) {
       project.afterEvaluate {
-        def initCopConfig = new CopyCopConfig(coppuccino.rootDir, project)
+        def initCopConfig = new CopyCopConfig(coppuccino.rootDir, project, coppuccino.overwriteConfigs)
         initCopConfig.run()
       }
 

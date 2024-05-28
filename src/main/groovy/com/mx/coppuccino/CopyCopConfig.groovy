@@ -25,10 +25,12 @@ class CopyCopConfig {
 
   String projectRoot
   Project project
+  Boolean overwriteConfigs
 
-  CopyCopConfig(String projectRoot, Project project) {
+  CopyCopConfig(String projectRoot, Project project, Boolean overwriteConfigs) {
     this.projectRoot = projectRoot
     this.project = project
+    this.overwriteConfigs = overwriteConfigs
   }
 
   void run() {
@@ -48,6 +50,11 @@ class CopyCopConfig {
   private void copyConfigFile(String resourcePath, String dest) {
     File target = new File(Paths.get(projectRoot, dest).toString())
     ensureDirectory(target.getParentFile())
+
+    if (!overwriteConfigs && target.exists()) {
+      return
+    }
+
     InputStream stream = getClass().getResourceAsStream(resourcePath)
     target.text = ''
     target << stream.text

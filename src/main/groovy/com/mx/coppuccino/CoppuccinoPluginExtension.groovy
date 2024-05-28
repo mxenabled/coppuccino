@@ -17,6 +17,7 @@ package com.mx.coppuccino
 
 class CoppuccinoPluginExtension {
   String rootDir = ""
+  boolean overwriteConfigs = true
 }
 
 class CoppuccinoCoverageExtension {
