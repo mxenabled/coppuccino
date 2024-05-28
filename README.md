@@ -45,6 +45,7 @@ _In build.gradle_
 ```
 coppuccino {
   rootDir = "" # Relative path to project root
+  overwriteConfigs = true # Set to false to allow a project to manage its own copy of configs (e.g. spotbugs/exclude.xml) 
   coverage {
     minimumCoverage = 0.0   # Required percentage of test code coverage.
     excludes [ # Package paths to exclude from coverage calculation
@@ -56,6 +57,9 @@ coppuccino {
   dependencies {
     lockingEnabled = true
     excludePreReleaseVersions = true # Set to false to allow for #.#.3.pre release versions to be included in --write-locks
+  }
+  java {
+    enabled = true # Set to false to disable checkstyle (e.g. for projects that have no java files)
   }
   kotlin {
     enabled = false # Set to true to enable kotlin linting with Detekt

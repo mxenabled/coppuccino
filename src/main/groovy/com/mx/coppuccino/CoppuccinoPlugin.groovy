@@ -41,11 +41,12 @@ class CoppuccinoPlugin implements Plugin<Project> {
     def coppuccino = project.extensions.create('coppuccino', CoppuccinoPluginExtension)
     def coverage = project.extensions.coppuccino.extensions.create('coverage', CoppuccinoCoverageExtension)
     def dependencies = project.extensions.coppuccino.extensions.create('dependencies', CoppuccinoDependenciesExtension)
+    def javaEx = project.extensions.coppuccino.extensions.create('java', CoppuccinoJavaExtension)
     def kotlinEx = project.extensions.coppuccino.extensions.create('kotlin', CoppuccinoKotlinExtension)
 
     project.plugins.withType(JavaPlugin) {
       project.afterEvaluate {
-        def initCopConfig = new CopyCopConfig(coppuccino.rootDir, project)
+        def initCopConfig = new CopyCopConfig(coppuccino.rootDir, project, coppuccino.overwriteConfigs)
         initCopConfig.run()
       }
 
@@ -65,7 +66,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // **************************************
           quality {
             checkstyleVersion = '8.29'
-            checkstyle = true
+            checkstyle = javaEx.enabled
             codenarc = false
             pmd = true
             spotbugs = false

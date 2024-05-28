@@ -17,6 +17,7 @@ package com.mx.coppuccino
 
 class CoppuccinoPluginExtension {
   String rootDir = ""
+  boolean overwriteConfigs = true
 }
 
 class CoppuccinoCoverageExtension {
@@ -34,6 +35,11 @@ class CoppuccinoDependenciesExtension {
 
   // Ignore pre releases in dynamic version resolution
   boolean excludePreReleaseVersions = true
+}
+
+class CoppuccinoJavaExtension {
+  // Enable java support by default
+  boolean enabled = true
 }
 
 class CoppuccinoKotlinExtension {
