@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/mxenabled/coppuccino/compare/3.2.10...3.3.0) (2024-06-03)
+
+
+### Features
+
+* support config overrides and the disabling of checkstyle ([0fc9fac](https://github.com/mxenabled/coppuccino/commit/0fc9facc002a3e24154ead7d60530b1e35800c3d))
+
 ## [3.2.10](https://github.com/mxenabled/coppuccino/compare/3.2.9...3.2.10) (2023-04-14)
 
 
