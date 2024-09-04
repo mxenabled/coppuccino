@@ -4,7 +4,7 @@ plugins {
   id "java-gradle-plugin"
   id "java-library"
   id "maven-publish"
-  id "com.github.ben-manes.versions" version "0.43.0"
+  id "com.github.ben-manes.versions" version "0.51.0"
 }
 
 group "com.mx.coppuccino"
@@ -18,16 +18,15 @@ repositories {
 }
 
 dependencies {
-  // Need to keep at 4.7.0. 4.8.0 is not compatible with Java 8.
-  implementation "ru.vyarus:gradle-quality-plugin:4.7.0"
-  implementation "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.13"
+  implementation "ru.vyarus:gradle-quality-plugin:4.9.0"
+  implementation "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.2.5"
   // Need to keep at 6.6.0 until issues with M1 Macs is addressed.
   implementation("com.diffplug.spotless:spotless-plugin-gradle:6.6.0") {
     exclude group: "com.google.googlejavaformat", module: "google-java-format-parent"
   }
-  implementation "com.google.googlejavaformat:google-java-format-parent:1.15.0"
-  implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.22.0-RC2"
-  implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.47.0"
+  implementation "com.google.googlejavaformat:google-java-format-parent:1.23.0"
+  implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.22.0"
+  implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.54.0"
 }
 
 project.description     = "Java style, standard, and safety enforcement"
