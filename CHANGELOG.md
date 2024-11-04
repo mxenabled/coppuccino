@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/mxenabled/coppuccino/compare/3.3.0...4.0.0) (2024-11-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Java minimum version required bumped to 17
+
+### Miscellaneous Chores
+
+* upgrading to Java 17 ([2388101](https://github.com/mxenabled/coppuccino/commit/23881011375f246b3a09d54ab17280f014f267ae))
+
 ## [3.3.0](https://github.com/mxenabled/coppuccino/compare/3.2.10...3.3.0) (2024-06-03)
 
 
