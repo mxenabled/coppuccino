@@ -91,10 +91,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
             java {
               importOrder ('java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor')
-              // A sequence of package names
-              eclipse().configFile "${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml"
-              // XML file dumped out by the Eclipse formatter
               removeUnusedImports()
+              eclipse().configFile("${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml")
               target "**/*.java"
               targetExclude "build/generated/**/*.*", ".gradle/**/*.*", "build/generatedsources/**/*.*"
             }
