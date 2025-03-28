@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/mxenabled/coppuccino/compare/4.0.0...4.0.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* set jdk version in jitpack config ([01e2f3a](https://github.com/mxenabled/coppuccino/commit/01e2f3a0b8246667d576214b1aef337ff530d52f))
+
 ## [4.0.0](https://github.com/mxenabled/coppuccino/compare/3.3.0...4.0.0) (2024-11-04)
 
 
