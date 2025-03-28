@@ -1,0 +1,6 @@
+jdk:
+  - openjdk17
+before_install:
+  - sdk list java
+  - sdk install java 17.0.3-amzn
+  - sdk use java 17.0.3-amzn
