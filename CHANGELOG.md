@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.2](https://github.com/mxenabled/coppuccino/compare/4.0.1...4.0.2) (2025-03-28)
+
+
+### Bug Fixes
+
+* remove unnecessary jitpack configs ([568b21f](https://github.com/mxenabled/coppuccino/commit/568b21f6b8fc3994a533baa7dfb146d7e286c6c5))
+
 ## [4.0.1](https://github.com/mxenabled/coppuccino/compare/4.0.0...4.0.1) (2025-03-28)
 
 
