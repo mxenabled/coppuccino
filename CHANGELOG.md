@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.3](https://github.com/mxenabled/coppuccino/compare/4.0.2...4.0.3) (2025-03-31)
+
+
+### Build System
+
+* upgrade gradle to 7.5.1 ([627a2e8](https://github.com/mxenabled/coppuccino/commit/627a2e8c34c16b3da304b30b6fb108449e4dbd29))
+
 ## [4.0.2](https://github.com/mxenabled/coppuccino/compare/4.0.1...4.0.2) (2025-03-28)
 
 
