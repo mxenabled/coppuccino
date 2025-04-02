@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.0](https://github.com/mxenabled/coppuccino/compare/4.0.3...4.1.0) (2025-04-02)
+
+
+### Features
+
+* **spotless:** add lombok and spock to import order ([fbe74d2](https://github.com/mxenabled/coppuccino/commit/fbe74d214112b0201b391b11b39bbb955b64254b))
+* **spotless:** remove ending semicolons from groovy files ([fbe74d2](https://github.com/mxenabled/coppuccino/commit/fbe74d214112b0201b391b11b39bbb955b64254b))
+
 ## [4.0.3](https://github.com/mxenabled/coppuccino/compare/4.0.2...4.0.3) (2025-03-31)
 
 
