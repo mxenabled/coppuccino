@@ -83,7 +83,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // **************************************
           spotless {
             groovy {
-              importOrder('\\#', 'java', 'javax', 'edu', '', 'com', 'org', 'brave', 'io', 'reactor', 'spock')
+              importOrder('\\#', 'java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor', 'spock', '')
               removeSemicolons()
               greclipse().configFile("${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml")
               target "**/*.gradle", "**/*.groovy"
@@ -91,7 +91,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             }
 
             java {
-              importOrder ('\\#', 'java', 'javax', 'lombok', 'edu', '', 'com', 'org', 'brave', 'io', 'reactor')
+              importOrder ('\\#', 'java', 'javax', 'lombok', 'edu', 'com', 'org', 'brave', 'io', 'reactor', '')
               removeUnusedImports()
               eclipse().configFile("${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml")
               target "**/*.java"
