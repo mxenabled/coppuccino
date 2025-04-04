@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/mxenabled/coppuccino/compare/4.1.0...4.2.0) (2025-04-04)
+
+
+### Features
+
+* **spotless:** move other imports to last ([3fb77d5](https://github.com/mxenabled/coppuccino/commit/3fb77d57c2bc0ceacb5c2bfcd39c62e0898e9b9b))
+
 ## [4.1.0](https://github.com/mxenabled/coppuccino/compare/4.0.3...4.1.0) (2025-04-02)
 
 
