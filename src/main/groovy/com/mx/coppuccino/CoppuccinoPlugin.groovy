@@ -83,7 +83,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // **************************************
           spotless {
             groovy {
-              importOrder('\\#', 'java', 'javax', 'edu', 'com', 'org', 'brave', 'io', 'reactor', 'spock', '')
+              importOrder('\\#', 'java', 'javax', 'lombok', 'edu', 'com', 'org', 'brave', 'io', 'reactor', 'spock', '')
               removeSemicolons()
               greclipse().configFile("${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml")
               target "**/*.gradle", "**/*.groovy"
@@ -123,7 +123,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             excludeFilter = file("${coppuccino.rootDir}.coppuccino/spotbugs/exclude.xml")
           }
 
-          project.task("spotbugsReport") {
+          tasks.register("spotbugsReport") {
             doLast {
               try {
                 new SpotbugsConsoleReporter(project, coppuccino).report()

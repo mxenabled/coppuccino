@@ -32,10 +32,10 @@ class SpotbugsConsoleReporter {
 
   @CompileStatic(TypeCheckingMode.SKIP)
   void report() {
-    // report may not exists
-    File reportFile = new File("build/reports/spotbugs/main.xml")
+    String reportFilePath = "${project.extensions.spotbugs.reportsDir.get()}/main.xml"
+    File reportFile = new File(reportFilePath)
     if (reportFile == null || !reportFile.exists() || reportFile.length() == 0) {
-      return
+      throw new FileNotFoundException("Report file not found at $reportFilePath")
     }
     Node result = new XmlParser().parse(reportFile)
     int cnt = result.BugInstance.size()
