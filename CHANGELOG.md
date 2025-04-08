@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.2.1](https://github.com/mxenabled/coppuccino/compare/4.2.0...4.2.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* **spotbugs:** remove hardcoded report path in console reporter ([9835424](https://github.com/mxenabled/coppuccino/commit/9835424a3213f13783d47bac52c5ee8f4e138d67))
+* **spotless:** add lombok prefix to groovy import order ([9835424](https://github.com/mxenabled/coppuccino/commit/9835424a3213f13783d47bac52c5ee8f4e138d67))
+
 ## [4.2.0](https://github.com/mxenabled/coppuccino/compare/4.1.0...4.2.0) (2025-04-04)
 
 
