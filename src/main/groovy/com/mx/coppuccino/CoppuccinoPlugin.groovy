@@ -91,7 +91,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             }
 
             java {
-              importOrder ('\\#', 'java', 'javax', 'lombok', 'edu', 'com', 'org', 'brave', 'io', 'reactor', '')
+              importOrder('\\#', 'java', 'javax', 'lombok', 'edu', 'com', 'org', 'brave', 'io', 'reactor', '')
               removeUnusedImports()
               eclipse().configFile("${coppuccino.rootDir}.coppuccino/spotless/eclipse-formatter.xml")
               target "**/*.java"
@@ -100,13 +100,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
             if (kotlinEx.enabled) {
               kotlin {
-                ktlint('0.39.0').userData(
-                    [
-                        'indent_size'             : '2',
-                        'continuation_indent_size': '2',
-                        'kotlin_imports_layout'   : 'idea'
-                    ]
-                )
+                ktlint().setEditorConfigPath("${coppuccino.rootDir}.coppuccino/spotless/.editorconfig")
               }
             }
           }
@@ -119,7 +113,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           spotbugs {
             effort = "max"
             reportLevel = "medium"
-            extraArgs = [ "-longBugCodes" ]
+            extraArgs = ["-longBugCodes"]
             excludeFilter = file("${coppuccino.rootDir}.coppuccino/spotbugs/exclude.xml")
           }
 
@@ -127,7 +121,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             doLast {
               try {
                 new SpotbugsConsoleReporter(project, coppuccino).report()
-              } catch(Exception e) {
+              } catch (Exception e) {
                 project.logger.error("Unable to generate spotbugs report", e)
               }
             }
@@ -177,9 +171,9 @@ class CoppuccinoPlugin implements Plugin<Project> {
                   minimum = coverage.minimumCoverage
                 }
                 afterEvaluate {
-                    classDirectories.setFrom(classDirectories.files.collect {
-                        fileTree(dir: it, exclude: coverage.excludes)
-                    })
+                  classDirectories.setFrom(classDirectories.files.collect {
+                    fileTree(dir: it, exclude: coverage.excludes)
+                  })
                 }
                 excludes = coverage.excludes
               }
