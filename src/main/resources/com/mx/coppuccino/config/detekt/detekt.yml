@@ -542,12 +542,8 @@ style:
     active: false
   MandatoryBracesLoops:
     active: false
-  MaxLineLength:
-    active: true
-    maxLineLength: 150
-    excludePackageStatements: true
-    excludeImportStatements: true
-    excludeCommentStatements: false
+  MaxLineLength: # enforced by spotless/ktlint
+    active: false
   MayBeConst:
     active: true
   ModifierOrder:

@@ -40,9 +40,10 @@ class CopyCopConfig {
     }
 
     copyConfigFile("/com/mx/coppuccino/config/pmd/pmd.xml", ".coppuccino/pmd/pmd.xml")
-    copyConfigFile("/com/mx/coppuccino/config/checkstyle/checkstyle.xml",".coppuccino/checkstyle/checkstyle.xml" )
+    copyConfigFile("/com/mx/coppuccino/config/checkstyle/checkstyle.xml", ".coppuccino/checkstyle/checkstyle.xml")
     copyConfigFile("/com/mx/coppuccino/config/spotbugs/exclude.xml", ".coppuccino/spotbugs/exclude.xml")
     copyConfigFile("/com/mx/coppuccino/config/spotbugs/html-report-style.xsl", ".coppuccino/spotbugs/html-report-style.xsl")
+    copyConfigFile("/com/mx/coppuccino/config/spotless/.editorconfig", ".coppuccino/spotless/.editorconfig")
     copyConfigFile("/com/mx/coppuccino/config/spotless/eclipse-formatter.xml", ".coppuccino/spotless/eclipse-formatter.xml")
     copyConfigFile("/com/mx/coppuccino/config/detekt/detekt.yml", ".coppuccino/detekt/detekt.yml")
   }
