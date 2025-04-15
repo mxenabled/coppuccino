@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.0](https://github.com/mxenabled/coppuccino/compare/4.2.1...4.3.0) (2025-04-15)
+
+
+### Features
+
+* **spotless:** use latest ktlint version with custom config ([807b929](https://github.com/mxenabled/coppuccino/commit/807b929ef8d233126de1efb5c4afdc41ec6abff9))
+
 ## [4.2.1](https://github.com/mxenabled/coppuccino/compare/4.2.0...4.2.1) (2025-04-08)
 
 
