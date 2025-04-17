@@ -100,7 +100,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
             if (kotlinEx.enabled) {
               kotlin {
-                ktlint().setEditorConfigPath("${coppuccino.rootDir}.coppuccino/spotless/.editorconfig")
+                ktlint('1.5.0').setEditorConfigPath("${coppuccino.rootDir}.coppuccino/spotless/.editorconfig")
+                target "**/*.kt", "**/*.kts"
               }
             }
           }
