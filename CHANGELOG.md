@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.3.1](https://github.com/mxenabled/coppuccino/compare/4.3.0...4.3.1) (2025-04-17)
+
+
+### Bug Fixes
+
+* **spotless:** lock ktlint to version 1.5.0 ([a317174](https://github.com/mxenabled/coppuccino/commit/a317174ab9d7f63a70cc1e0c1e8b4fa45ea5e07b))
+* upgrade detekt version to be compatible with kotlin 1.9 ([a317174](https://github.com/mxenabled/coppuccino/commit/a317174ab9d7f63a70cc1e0c1e8b4fa45ea5e07b))
+
 ## [4.3.0](https://github.com/mxenabled/coppuccino/compare/4.2.1...4.3.0) (2025-04-15)
 
 
