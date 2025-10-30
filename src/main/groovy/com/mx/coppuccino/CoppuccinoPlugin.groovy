@@ -16,8 +16,11 @@
 package com.mx.coppuccino
 
 import com.diffplug.gradle.spotless.SpotlessPlugin
+import com.github.spotbugs.snom.Confidence
+import com.github.spotbugs.snom.Effort
 import com.github.spotbugs.snom.SpotBugsPlugin
 import com.github.spotbugs.snom.SpotBugsTask
+
 import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
 import io.gitlab.arturbosch.detekt.DetektPlugin
@@ -28,7 +31,8 @@ import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.kordamp.gradle.plugin.jacoco.JacocoPlugin
+import org.gradle.testing.jacoco.plugins.JacocoPlugin
+
 import ru.vyarus.gradle.plugin.quality.QualityPlugin
 
 @CompileStatic
@@ -65,7 +69,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // Quality plugin configuration
           // **************************************
           quality {
-            checkstyleVersion = '8.29'
+            checkstyleVersion = '10.25.0'
             checkstyle = javaEx.enabled
             codenarc = false
             pmd = true
@@ -112,8 +116,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
           //   https://github.com/spotbugs/spotbugs-gradle-plugin
           // **************************************
           spotbugs {
-            effort = "max"
-            reportLevel = "medium"
+            effort = Effort.valueOf("MAX")
+            reportLevel = Confidence.valueOf("MEDIUM")
             extraArgs = ["-longBugCodes"]
             excludeFilter = file("${coppuccino.rootDir}.coppuccino/spotbugs/exclude.xml")
           }
