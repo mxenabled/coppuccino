@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.0](https://github.com/mxenabled/coppuccino/compare/4.3.1...4.4.0) (2025-11-19)
+
+
+### Features
+
+* bump spotbugs, detekt, checkstyle, quality plugin and gradle ([804c87f](https://github.com/mxenabled/coppuccino/commit/804c87f066f1accdfc99609e3b8c53e2f8094c5e))
+
 ## [4.3.1](https://github.com/mxenabled/coppuccino/compare/4.3.0...4.3.1) (2025-04-17)
 
 
