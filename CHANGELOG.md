@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.1](https://github.com/mxenabled/coppuccino/compare/4.4.0...4.4.1) (2025-11-20)
+
+
+### Bug Fixes
+
+* revert sourceCompatibility and targetCompatibility ([af39099](https://github.com/mxenabled/coppuccino/commit/af39099d6d33046cf0acee25f48b662abc28a3fc))
+
 ## [4.4.0](https://github.com/mxenabled/coppuccino/compare/4.3.1...4.4.0) (2025-11-19)
 
 
