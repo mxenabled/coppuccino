@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.2](https://github.com/mxenabled/coppuccino/compare/4.4.1...4.4.2) (2025-11-20)
+
+
+### Bug Fixes
+
+* update gradle to 7.6.3 ([2bf76db](https://github.com/mxenabled/coppuccino/commit/2bf76db7ecebab066cb2d44bcbae2fcc6f3c675e))
+
 ## [4.4.1](https://github.com/mxenabled/coppuccino/compare/4.4.0...4.4.1) (2025-11-20)
 
 
