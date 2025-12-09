@@ -9,8 +9,8 @@ plugins {
 
 group "com.mx.coppuccino"
 version "4.4.2" // x-release-please-version
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
   gradlePluginPortal()
@@ -18,8 +18,9 @@ repositories {
 }
 
 dependencies {
-  implementation "ru.vyarus:gradle-quality-plugin:5.0.0"
-  implementation "com.github.spotbugs:com.github.spotbugs.gradle.plugin:6.4.4"
+  implementation "ru.vyarus:gradle-quality-plugin:[6.0,7.0)"
+  implementation "com.github.spotbugs:com.github.spotbugs.gradle.plugin:[6.4,7.0)"
+  //spotless-plugin-gradle 8.1.+ requires gradle 8+
   implementation "com.diffplug.spotless:spotless-plugin-gradle:7.0.2"
   implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.54.0"
   implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.8"
@@ -47,6 +48,6 @@ gradlePlugin {
 }
 
 wrapper {
-  gradleVersion = "7.6.3"
+  gradleVersion = "7.6.4"
   distributionType = Wrapper.DistributionType.ALL
 }

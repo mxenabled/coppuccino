@@ -75,7 +75,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             pmd = true
             spotbugs = false
             configDir = "${coppuccino.rootDir}.coppuccino"
-            sourceSets = [project.sourceSets.main]
+            sourceSets = ['main']
             excludeSources = fileTree("${coppuccino.rootDir}build/generated")
             excludeSources = excludeSources.plus(fileTree("${coppuccino.rootDir}build/generatedsources"))
           }
