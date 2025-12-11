@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/mxenabled/coppuccino/compare/4.4.2...5.0.0) (2025-12-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump gradle and quality plugin
+
+### Features
+
+* bump gradle and quality plugin ([f55563a](https://github.com/mxenabled/coppuccino/commit/f55563ad1c84351cdca4a8ec529023fe695b01d0))
+
 ## [4.4.2](https://github.com/mxenabled/coppuccino/compare/4.4.1...4.4.2) (2025-11-20)
 
 
