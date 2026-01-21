@@ -59,7 +59,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
         project.plugins.apply(QualityPlugin)
         project.plugins.apply(SpotlessPlugin)
         project.plugins.apply(SpotBugsPlugin)
-        if (kotlinEx.enabled) {
+        if (kotlinEx.required) {
           project.plugins.apply(DetektPlugin)
         }
         project.plugins.apply(JacocoPlugin)
@@ -69,8 +69,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // Quality plugin configuration
           // **************************************
           quality {
-            checkstyleVersion = '10.25.0'
-            checkstyle = javaEx.enabled
+            checkstyleVersion = '13.0.0'
+            checkstyle = javaEx.required
             codenarc = false
             pmd = true
             spotbugs = false
@@ -102,7 +102,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
               targetExclude "build/generated/**/*.*", ".gradle/**/*.*", "build/generatedsources/**/*.*"
             }
 
-            if (kotlinEx.enabled) {
+            if (kotlinEx.required) {
               kotlin {
                 ktlint('1.5.0').setEditorConfigPath("${coppuccino.rootDir}.coppuccino/spotless/.editorconfig")
                 target "**/*.kt", "**/*.kts"
@@ -142,7 +142,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // **************************************
           // Detekt plugin configuration
           // **************************************
-          if (kotlinEx.enabled) {
+          if (kotlinEx.required) {
             detekt {
               config = files("${coppuccino.rootDir}.coppuccino/detekt/detekt.yml")
               excludes: "${coppuccino.rootDir}.*build.*,.*/resources/.*,.*/tmp/.*"
@@ -157,8 +157,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
           jacocoTestReport {
             reports {
-              csv.enabled true
-              html.enabled true
+              csv.required.set(true)
+              html.required.set(true)
             }
             afterEvaluate {
               classDirectories.setFrom(classDirectories.files.collect {
