@@ -1,5 +1,5 @@
 plugins {
-  id "com.github.mxenabled.vogue" version "1.+"
+  id "com.github.mxenabled.vogue" version "2.+"
   id "groovy"
   id "java-gradle-plugin"
   id "java-library"
@@ -9,8 +9,12 @@ plugins {
 
 group "com.mx.coppuccino"
 version "5.0.0" // x-release-please-version
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
+  }
+}
 
 repositories {
   gradlePluginPortal()
@@ -20,8 +24,7 @@ repositories {
 dependencies {
   implementation "ru.vyarus:gradle-quality-plugin:[6.0,7.0)"
   implementation "com.github.spotbugs:com.github.spotbugs.gradle.plugin:[6.4,7.0)"
-  //spotless-plugin-gradle 8.1.+ requires gradle 8+
-  implementation "com.diffplug.spotless:spotless-plugin-gradle:7.0.2"
+  implementation "com.diffplug.spotless:spotless-plugin-gradle:[8.2,9.0)"
   implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.54.0"
   implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.8"
 }
@@ -48,6 +51,6 @@ gradlePlugin {
 }
 
 wrapper {
-  gradleVersion = "7.6.4"
+  gradleVersion = "8.14.3"
   distributionType = Wrapper.DistributionType.ALL
 }
