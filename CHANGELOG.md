@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.0.0](https://github.com/mxenabled/coppuccino/compare/5.0.0...6.0.0) (2026-01-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump checkstyle, gradle and java
+
+### Features
+
+* bump checkstyle, gradle and java ([ac04297](https://github.com/mxenabled/coppuccino/commit/ac0429775d58b8ab900556edebab7a8d2d10a103))
+
 ## [5.0.0](https://github.com/mxenabled/coppuccino/compare/4.4.2...5.0.0) (2025-12-11)
 
 
