@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.1](https://github.com/mxenabled/coppuccino/compare/6.0.0...6.0.1) (2026-01-27)
+
+
+### Bug Fixes
+
+* bump jitpack jdk ([c6376f9](https://github.com/mxenabled/coppuccino/commit/c6376f922757a506f1589d6c3672e6eac4b2d237))
+
 ## [6.0.0](https://github.com/mxenabled/coppuccino/compare/5.0.0...6.0.0) (2026-01-27)
 
 
