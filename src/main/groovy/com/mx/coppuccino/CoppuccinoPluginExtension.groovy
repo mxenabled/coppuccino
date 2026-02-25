@@ -39,10 +39,10 @@ class CoppuccinoDependenciesExtension {
 
 class CoppuccinoJavaExtension {
   // Enable java support by default
-  boolean required = true
+  boolean enabled = true
 }
 
 class CoppuccinoKotlinExtension {
   // Disable kotlin support by default
-  boolean required = false
+  boolean enabled = false
 }
