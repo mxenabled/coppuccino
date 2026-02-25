@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.2](https://github.com/mxenabled/coppuccino/compare/6.0.1...6.0.2) (2026-02-25)
+
+
+### Bug Fixes
+
+* revert java 21 upgrade ([9b26b36](https://github.com/mxenabled/coppuccino/commit/9b26b36e619dd3e958936717bd935ad88962f791))
+
 ## [6.0.1](https://github.com/mxenabled/coppuccino/compare/6.0.0...6.0.1) (2026-01-27)
 
 
