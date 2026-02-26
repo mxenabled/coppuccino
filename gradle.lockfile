@@ -1,0 +1,43 @@
+# This is a Gradle generated file for dependency locking.
+# Manual edits can break the build and are not advised.
+# This file is expected to be part of source control.
+com.diffplug.durian:durian-collect:1.2.0=runtimeClasspath,testRuntimeClasspath
+com.diffplug.durian:durian-core:1.2.0=runtimeClasspath,testRuntimeClasspath
+com.diffplug.durian:durian-io:1.2.0=runtimeClasspath,testRuntimeClasspath
+com.diffplug.durian:durian-swt.os:4.3.0=runtimeClasspath,testRuntimeClasspath
+com.diffplug.spotless:spotless-lib-extra:3.0.2=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.diffplug.spotless:spotless-lib:3.0.2=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.diffplug.spotless:spotless-plugin-gradle:7.0.2=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.github.spotbugs.snom:spotbugs-gradle-plugin:6.4.8=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.github.spotbugs:com.github.spotbugs.gradle.plugin:6.4.8=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.googlecode.concurrent-trees:concurrent-trees:2.6.1=runtimeClasspath,testRuntimeClasspath
+com.googlecode.javaewah:JavaEWAH:1.2.3=runtimeClasspath,testRuntimeClasspath
+com.squareup.okhttp3:okhttp:4.12.0=runtimeClasspath,testRuntimeClasspath
+com.squareup.okio:okio-jvm:3.6.0=runtimeClasspath,testRuntimeClasspath
+com.squareup.okio:okio:3.6.0=runtimeClasspath,testRuntimeClasspath
+commons-codec:commons-codec:1.17.0=runtimeClasspath,testRuntimeClasspath
+dev.equo.ide:solstice:1.8.1=runtimeClasspath,testRuntimeClasspath
+io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.8=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+javax.inject:javax.inject:1=runtimeClasspath,testRuntimeClasspath
+org.apache.commons:commons-lang3:3.8.1=runtimeClasspath,testRuntimeClasspath
+org.apache.maven:maven-artifact:3.8.8=runtimeClasspath,testRuntimeClasspath
+org.apache.maven:maven-builder-support:3.8.8=runtimeClasspath,testRuntimeClasspath
+org.apache.maven:maven-model-builder:3.8.8=runtimeClasspath,testRuntimeClasspath
+org.apache.maven:maven-model:3.8.8=runtimeClasspath,testRuntimeClasspath
+org.codehaus.plexus:plexus-interpolation:1.26=runtimeClasspath,testRuntimeClasspath
+org.codehaus.plexus:plexus-utils:3.3.1=runtimeClasspath,testRuntimeClasspath
+org.eclipse.jgit:org.eclipse.jgit:6.10.0.202406032230-r=runtimeClasspath,testRuntimeClasspath
+org.eclipse.platform:org.eclipse.osgi:3.18.500=runtimeClasspath,testRuntimeClasspath
+org.eclipse.sisu:org.eclipse.sisu.inject:0.3.5=runtimeClasspath,testRuntimeClasspath
+org.jetbrains.kotlin:kotlin-stdlib-common:2.0.21=runtimeClasspath,testRuntimeClasspath
+org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10=runtimeClasspath,testRuntimeClasspath
+org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10=runtimeClasspath,testRuntimeClasspath
+org.jetbrains.kotlin:kotlin-stdlib:2.0.21=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.jetbrains:annotations:13.0=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.kordamp.gradle.base:org.kordamp.gradle.base.gradle.plugin:0.54.0=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.kordamp.gradle:base-gradle-plugin:0.54.0=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.kordamp.gradle:jacoco-gradle-plugin:0.54.0=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.slf4j:slf4j-api:1.7.36=runtimeClasspath,testRuntimeClasspath
+org.tukaani:xz:1.9=runtimeClasspath,testRuntimeClasspath
+ru.vyarus:gradle-quality-plugin:6.0.1=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+empty=annotationProcessor,testAnnotationProcessor
