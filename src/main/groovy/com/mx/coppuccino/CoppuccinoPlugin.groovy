@@ -249,6 +249,32 @@ class CoppuccinoPlugin implements Plugin<Project> {
             }
           }
 
+          // Security patches for plugin dependencies
+          configurations.matching { it.name == 'checkstyle' || it.name == 'spotbugs' || it.name == 'pmd' }.configureEach { config ->
+            project.dependencies.constraints.add(config.name, 'org.apache.commons:commons-lang3') {
+              version { require '3.18.0' }
+              because 'Fixes High Severity vulnerability SNYK-JAVA-ORGAPACHECOMMONS-10734078'
+            }
+          }
+          configurations.matching { it.name == 'spotbugs' }.configureEach { config ->
+            project.dependencies.constraints.add(config.name, 'org.apache.logging.log4j:log4j-core') {
+              version { require '2.25.3' }
+              because 'Fixes Medium Severity vulnerability SNYK-JAVA-ORGAPACHELOGGINGLOG4J-14532782'
+            }
+          }
+          if (kotlinEx.enabled) {
+            configurations.matching { it.name == 'detekt' }.configureEach { config ->
+              project.dependencies.constraints.add(config.name, 'org.jetbrains.kotlin:kotlin-stdlib') {
+                version { require '2.1.0' }
+                because 'Fixes Low Severity vulnerability SNYK-JAVA-ORGJETBRAINSKOTLIN-2393744'
+              }
+            }
+          }
+
+          // Provide @SuppressFBWarnings annotation for suppressing Spotbugs violations
+          project.dependencies.add('compileOnly', 'com.github.spotbugs:spotbugs-annotations:4.9.8')
+          project.dependencies.add('testCompileOnly', 'com.github.spotbugs:spotbugs-annotations:4.9.8')
+
           project.tasks.spotlessGroovy.dependsOn(compileJava, compileTestGroovy)
           project.tasks.spotlessJava.dependsOn(compileJava, compileTestGroovy, spotlessGroovy)
         }
