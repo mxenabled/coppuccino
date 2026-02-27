@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.1.0](https://github.com/mxenabled/coppuccino/compare/6.0.2...6.1.0) (2026-02-27)
+
+
+### Features
+
+* provide spotbugs annotations to consumers ([25bc4b2](https://github.com/mxenabled/coppuccino/commit/25bc4b25784f5f3b2752730466f9ceb473d4a313))
+
+
+### Bug Fixes
+
+* include security patches for plugin dependencies ([25bc4b2](https://github.com/mxenabled/coppuccino/commit/25bc4b25784f5f3b2752730466f9ceb473d4a313))
+
 ## [6.0.2](https://github.com/mxenabled/coppuccino/compare/6.0.1...6.0.2) (2026-02-25)
 
 
