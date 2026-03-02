@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.0](https://github.com/mxenabled/coppuccino/compare/6.1.0...6.2.0) (2026-03-02)
+
+
+### Features
+
+* provide spotbugs annotation processor to consumers ([bd067bd](https://github.com/mxenabled/coppuccino/commit/bd067bdbe6334759b31ab35ea86e3b68f1082898))
+
 ## [6.1.0](https://github.com/mxenabled/coppuccino/compare/6.0.2...6.1.0) (2026-02-27)
 
 
