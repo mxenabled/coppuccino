@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.1](https://github.com/mxenabled/coppuccino/compare/6.2.0...6.2.1) (2026-03-03)
+
+
+### Bug Fixes
+
+* update pmd version to resolve CVE ([b7ae84f](https://github.com/mxenabled/coppuccino/commit/b7ae84fa4c8c9ee21b82394a24c82f085e622d38))
+
 ## [6.2.0](https://github.com/mxenabled/coppuccino/compare/6.1.0...6.2.0) (2026-03-02)
 
 
