@@ -73,6 +73,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
             checkstyle = javaEx.enabled
             codenarc = false
             pmd = true
+            pmdVersion = '7.22.0'
             spotbugs = false
             configDir = "${coppuccino.rootDir}.coppuccino"
             sourceSets = ['main']
