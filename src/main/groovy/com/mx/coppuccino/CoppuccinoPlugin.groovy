@@ -158,8 +158,8 @@ class CoppuccinoPlugin implements Plugin<Project> {
 
           jacocoTestReport {
             reports {
-              csv.enabled true
-              html.enabled true
+              csv.required = true
+              html.required = true
             }
             afterEvaluate {
               classDirectories.setFrom(classDirectories.files.collect {
