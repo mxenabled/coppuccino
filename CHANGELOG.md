@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/mxenabled/coppuccino/compare/6.2.1...7.0.0) (2026-05-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to gradle 8 and java 21 | MC-11845
+
+### Features
+
+* bump to gradle 8 and java 21 | MC-11845 ([5d34300](https://github.com/mxenabled/coppuccino/commit/5d34300b8f7219e5ffc75870d6ea008d2306b4b8))
+
 ## [6.2.1](https://github.com/mxenabled/coppuccino/compare/6.2.0...6.2.1) (2026-03-03)
 
 
