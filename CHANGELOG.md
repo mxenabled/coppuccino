@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/mxenabled/coppuccino/compare/7.0.0...7.0.1) (2026-05-04)
+
+
+### Bug Fixes
+
+* bump jitpack to java21 ([f9ea286](https://github.com/mxenabled/coppuccino/commit/f9ea28612a67fb83b5efc902c1fb07719b791c8a))
+
 ## [7.0.0](https://github.com/mxenabled/coppuccino/compare/6.2.1...7.0.0) (2026-05-01)
 
 
