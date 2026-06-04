@@ -2,6 +2,7 @@ package com.mx.coppuccino
 
 import groovy.transform.CompileStatic
 import groovy.transform.TypeCheckingMode
+import groovy.xml.XmlParser
 import org.gradle.api.Project
 import org.gradle.internal.logging.text.StyledTextOutput.Style
 import org.gradle.internal.logging.text.StyledTextOutputFactory
@@ -17,7 +18,7 @@ class SpotbugsConsoleReporter {
   }
 
   static String unescapeHtml(String html) {
-    new XmlSlurper().parseText("<t>${html.trim().replaceAll('\\&nbsp;', '')}</t>")
+    new XmlParser().parseText("<t>${html.trim().replaceAll('\\&nbsp;', '')}</t>")
   }
 
   String NL = String.format('%n')

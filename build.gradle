@@ -1,13 +1,13 @@
 plugins {
-  id "com.github.mxenabled.vogue" version "3.+"
+  id "com.github.mxenabled.vogue" version "4.+"
   id "groovy"
   id "java-gradle-plugin"
   id "maven-publish"
-  id "com.github.ben-manes.versions" version "0.53.0"
+  id "com.github.ben-manes.versions" version "0.54.0"
 }
 
-group "com.mx.coppuccino"
-version "7.0.1" // x-release-please-version
+group = "com.mx.coppuccino"
+version = "7.0.1" // x-release-please-version
 
 java {
   toolchain {
@@ -19,14 +19,13 @@ repositories {
   mavenCentral()
   mavenLocal()
   gradlePluginPortal()
-  maven { url "https://jitpack.io" }
+  maven { url = "https://jitpack.io" }
 }
 
 dependencies {
   implementation "ru.vyarus:gradle-quality-plugin:[6.0,7.0)"
   implementation "com.github.spotbugs:com.github.spotbugs.gradle.plugin:[6.4,7.0)"
-  // spotless-plugin-gradle 8.1.+ requires gradle 8+
-  implementation "com.diffplug.spotless:spotless-plugin-gradle:7.0.2"
+  implementation "com.diffplug.spotless:spotless-plugin-gradle:[8.6,9.0)"
   implementation "org.kordamp.gradle:jacoco-gradle-plugin:0.54.0"
   implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.8"
 }
@@ -47,6 +46,6 @@ gradlePlugin {
 }
 
 wrapper {
-  gradleVersion = "8.14.3"
+  gradleVersion = "9.5.1"
   distributionType = Wrapper.DistributionType.ALL
 }
