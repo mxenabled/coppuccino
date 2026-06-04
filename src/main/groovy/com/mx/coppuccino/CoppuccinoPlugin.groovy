@@ -69,7 +69,7 @@ class CoppuccinoPlugin implements Plugin<Project> {
           // Quality plugin configuration
           // **************************************
           quality {
-            checkstyleVersion = '10.25.0'
+            checkstyleVersion = '13.7.0'
             checkstyle = javaEx.enabled
             codenarc = false
             pmd = true
@@ -273,10 +273,10 @@ class CoppuccinoPlugin implements Plugin<Project> {
           }
 
           // Provide @SuppressFBWarnings annotation for suppressing Spotbugs violations
-          project.dependencies.add('compileOnly', 'com.github.spotbugs:spotbugs-annotations:4.9.8')
-          project.dependencies.add('testCompileOnly', 'com.github.spotbugs:spotbugs-annotations:4.9.8')
-          project.dependencies.add('annotationProcessor', 'com.github.spotbugs:spotbugs-annotations:4.9.8')
-          project.dependencies.add('testAnnotationProcessor', 'com.github.spotbugs:spotbugs-annotations:4.9.8')
+          project.dependencies.add('compileOnly', 'com.github.spotbugs:spotbugs-annotations:4.10.2')
+          project.dependencies.add('testCompileOnly', 'com.github.spotbugs:spotbugs-annotations:4.10.2')
+          project.dependencies.add('annotationProcessor', 'com.github.spotbugs:spotbugs-annotations:4.10.2')
+          project.dependencies.add('testAnnotationProcessor', 'com.github.spotbugs:spotbugs-annotations:4.10.2')
 
           project.tasks.spotlessGroovy.dependsOn(compileJava, compileTestGroovy)
           project.tasks.spotlessJava.dependsOn(compileJava, compileTestGroovy, spotlessGroovy)
