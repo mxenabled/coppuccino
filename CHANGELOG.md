@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/mxenabled/coppuccino/compare/7.0.1...8.0.0) (2026-07-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to gradle 9.5.1 and spotless 8.6
+
+### Features
+
+* bump to gradle 9.5.1 and spotless 8.6 ([6f563bf](https://github.com/mxenabled/coppuccino/commit/6f563bff9842e0be1f0d44d203f6eef31ce73389))
+
 ## [7.0.1](https://github.com/mxenabled/coppuccino/compare/7.0.0...7.0.1) (2026-05-04)
 
 
